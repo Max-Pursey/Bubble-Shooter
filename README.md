@@ -1,1 +1,4 @@
 # Bubble-Shooter
+Author: Max Pursey
+
+The game Bubble Shooter involves shooting a colorful bubble from the bottom middle of the board into a grid of bubble. The shot bubble attaches to the grid and if it is connected to a chain of 2 or more bubbles of the same color the bubbles pop and the player gains points. The player has an amount of ammo that runs out slowly as the player fails to pop bubbles until the fully run out of ammo. When the player runs out of ammo a new layer of bubbles is created and the entire grid of bubbles moves down. The player then has a new round of shooting bubbles at the grid with one less ammo than they had before. The game ends when the grid of bubbles manages to lower below the bottom of the board.

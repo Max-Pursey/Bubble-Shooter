@@ -16,11 +16,29 @@ public class Bubble
 	Bubble thisBottomRight, Color thisColor)
 	{
 		left = thisLeft;
+		if (thisLeft != null) {
+			thisLeft.right = this;
+		}
 		right = thisRight;
+		if (thisRight != null) {
+			thisRight.left = this;
+		}
 		topLeft = thisTopLeft;
+		if (thisTopLeft != null) {
+			thisTopLeft.bottomRight = this;
+		}
 		topRight = thisTopRight;
-		bottomLeft = thisBottomRight;
+		if (thisTopRight != null) {
+			thisTopRight.bottomLeft = this;
+		}
+		bottomLeft = thisBottomLeft;
+		if (thisBottomLeft != null) {
+			thisBottomLeft.topRight = this;
+		}
 		bottomRight = thisBottomRight;
+		if (thisBottomRight != null) {
+			thisBottomRight.topLeft = this;
+		}
 		color = thisColor;
 	}
 	

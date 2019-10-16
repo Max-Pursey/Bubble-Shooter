@@ -4,16 +4,23 @@ import java.awt.Graphics2D;
 
 /**
  * A class that displays board, bubbles, and bubble shooter
+ * Singleton pattern
  */
-public class Board {
+public final class Board {
 
+	private static final Board INSTANCE = new Board();
+	
 	/**
 	 * Constructs a Board object that holds the bubbles and the bubble shooter.
 	 * Creating a new board restarts the game by creating the field of random bubbles
 	 * and a new bubble shooter
 	 */
-	public Board() {
+	private Board() {
 		BubbleShooter shooter = new BubbleShooter();
+	}
+	
+	public static Board getInstance() {
+		return INSTANCE
 	}
 	
 	/**

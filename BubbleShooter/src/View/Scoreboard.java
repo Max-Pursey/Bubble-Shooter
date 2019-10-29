@@ -1,4 +1,4 @@
-package BubbleShooter;
+package View;
 
 /**
  * A class that controls and displays the Score.

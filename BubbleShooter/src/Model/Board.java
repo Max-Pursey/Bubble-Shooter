@@ -1,6 +1,8 @@
-package BubbleShooter;
+package Model;
 
 import java.awt.Graphics2D;
+
+import Controller.BubbleShooter;
 
 /**
  * A class that displays board, bubbles, and bubble shooter

@@ -1,4 +1,4 @@
-package BubbleShooter;
+package Model;
 
 import java.awt.Color;
 

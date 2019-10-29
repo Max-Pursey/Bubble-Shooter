@@ -1,4 +1,4 @@
-package BubbleShooter;
+package Model;
 
 import javax.swing.JFrame;
 

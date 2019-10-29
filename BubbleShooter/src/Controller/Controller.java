@@ -6,7 +6,7 @@ import Model.Bubble;
  * A class for managing the shooting of the bubble
  */
 
-public class BubbleShooter {
+public class Controller {
 	
 	private int ammoCount;
 	Bubble[] ammo;
@@ -14,7 +14,7 @@ public class BubbleShooter {
 	/**
 	 * Constructs a BubbleShooter object that controls the shooting mechanics
 	 */
-	public BubbleShooter() {
+	public Controller() {
 		ammoCount = 5;
 		// initialize ammo bubbles
 	}

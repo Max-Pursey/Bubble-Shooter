@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  * A class for running the program
  */
 
-public class GameSystem extends JFrame {
+public class Model extends JFrame {
 
 	/**
 	 * Main method that runs the game

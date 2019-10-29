@@ -2,7 +2,7 @@ package Model;
 
 import java.awt.Graphics2D;
 
-import Controller.BubbleShooter;
+import Controller.Controller;
 
 /**
  * A class that displays board, bubbles, and bubble shooter
@@ -18,11 +18,11 @@ public final class Board {
 	 * and a new bubble shooter
 	 */
 	private Board() {
-		BubbleShooter shooter = new BubbleShooter();
+		Controller shooter = new Controller();
 	}
 	
 	public static Board getInstance() {
-		return INSTANCE
+		return INSTANCE;
 	}
 	
 	/**

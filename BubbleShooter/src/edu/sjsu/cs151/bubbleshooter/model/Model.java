@@ -56,27 +56,27 @@ public class Model extends JFrame {
 	}
 	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {
-		Color c = source.getColor();
+		Color c = source.color;
 		source.flipMarked();
 		ArrayList<Bubble> combination = new ArrayList<>();
 		
-		if(c == source.getLeft().getColor() && !source.getLeft().getMarked())
-			combination.addAll(checkCombinations(source.getLeft()));
+		if(c == source.left.color && !source.left.marked)
+			combination.addAll(checkCombinations(source.left));
 		
-		if(c == source.getRight().getColor() && !source.getRight().getMarked())
-			combination.addAll(checkCombinations(source.getRight()));
+		if(c == source.right.color && !source.right.marked)
+			combination.addAll(checkCombinations(source.right));
 		
-		if(c == source.getTopLeft().getColor() && !source.getTopLeft().getMarked())
-			combination.addAll(checkCombinations(source.getTopLeft()));
+		if(c == source.topLeft.color && !source.topLeft.marked)
+			combination.addAll(checkCombinations(source.topLeft));
 		
-		if(c == source.getTopRight().getColor() && !source.getTopRight().getMarked())
-			combination.addAll(checkCombinations(source.getTopRight()));
+		if(c == source.topRight.color && !source.topRight.marked)
+			combination.addAll(checkCombinations(source.topRight));
 		
-		if(c == source.getBottomLeft().getColor() && !source.getBottomLeft().getMarked())
-			combination.addAll(checkCombinations(source.getBottomLeft()));
+		if(c == source.bottomLeft.color && !source.bottomLeft.marked)
+			combination.addAll(checkCombinations(source.bottomLeft));
 		
-		if(c == source.getBottomRight().getColor() && !source.getBottomRight().getMarked())
-			combination.addAll(checkCombinations(source.getBottomRight()));
+		if(c == source.bottomRight.color && !source.bottomRight.marked)
+			combination.addAll(checkCombinations(source.bottomRight));
 		
 		return combination;
 	}
@@ -85,6 +85,10 @@ public class Model extends JFrame {
 	
 	// if arraylist greater than 3 pop them and add to scoreboard
 	public void pop(ArrayList<Bubble> pop) {
+	}
+	
+	public void movement(Bubble bubble) {
+		// adds the vector to position
 	}
 	
 	/**

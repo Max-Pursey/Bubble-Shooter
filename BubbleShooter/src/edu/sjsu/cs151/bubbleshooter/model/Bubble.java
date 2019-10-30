@@ -3,16 +3,20 @@ package edu.sjsu.cs151.bubbleshooter.model;
 import java.awt.Color;
 
 public class Bubble 
-{
-	private Bubble left;
-	private Bubble right;
-	private Bubble topLeft;
-	private Bubble topRight;
-	private Bubble bottomLeft;
-	private Bubble bottomRight;
-	private Color color;
-	private String colorString;
-	private boolean marked;
+{	
+	public Bubble 	left;
+	public Bubble 	right;
+	public Bubble 	topLeft;
+	public Bubble 	topRight;
+	public Bubble 	bottomLeft;
+	public Bubble 	bottomRight;
+	public Color 	color;
+	public String 	colorString;
+	public boolean 	marked;
+	public int 		x;
+	public int 		y;
+	public int 		dx;
+	public int 		dy;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
 	Bubble thisBottomRight)
@@ -44,60 +48,6 @@ public class Bubble
 		color = this.randomColor();
 	}
 	
-	/**
-	 * This method returns the left node of this Bubble.
-	 * @return left
-	 */
-	public Bubble getLeft()
-	{
-		return left;
-	}
-	
-	/**
-	 * This returns the right node of this Bubble.
-	 * @return right
-	 */
-	public Bubble getRight()
-	{
-		return right;
-	}
-	
-	/**
-	 * This returns the top left node of this Bubble.
-	 * @return topLeft
-	 */
-	public Bubble getTopLeft()
-	{
-		return topLeft;
-	}
-	
-	/**
-	 * This returns the top right node of this Bubble.
-	 * @return topRight
-	 */
-	public Bubble getTopRight()
-	{
-		return topRight;
-	}
-	
-	/**
-	 * This returns the bottom left node of this Bubble.
-	 * @return bottomLeft
-	 */
-	public Bubble getBottomLeft()
-	{
-		return bottomLeft;
-	}
-	
-	/**
-	 * This returns the bottom right node of this Bubble.
-	 * @return bottomRight
-	 */
-	public Bubble getBottomRight()
-	{
-		return bottomRight;
-	}
-	
 	
 	public Color randomColor() {
 		double randNumber = Math.random() * 6;
@@ -113,18 +63,12 @@ public class Bubble
 	 * This returns the color of the bubble.
 	 * @return color
 	 */
-	public Color getColor()
-	{
-		return color;
-	}
+
 	
 	public void flipMarked() {
 		marked = !marked;
 	}
 	
-	public boolean getMarked() {
-		return marked;
-	}
 	
 	public String toString() {
 		return colorString;

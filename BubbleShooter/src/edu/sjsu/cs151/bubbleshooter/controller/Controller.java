@@ -1,6 +1,6 @@
-package controller;
+package edu.sjsu.cs151.bubbleshooter.controller;
 
-import model.Bubble;
+import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
 /**
  * A class for managing the shooting of the bubble

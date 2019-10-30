@@ -1,4 +1,4 @@
-package model;
+package edu.sjsu.cs151.bubbleshooter.model;
 
 import java.awt.Color;
 

@@ -1,4 +1,4 @@
-package view;
+package edu.sjsu.cs151.bubbleshooter.view;
 
 import static org.junit.jupiter.api.Assertions.*;
 

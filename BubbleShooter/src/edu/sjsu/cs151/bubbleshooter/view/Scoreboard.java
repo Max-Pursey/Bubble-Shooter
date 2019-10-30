@@ -1,4 +1,4 @@
-package view;
+package edu.sjsu.cs151.bubbleshooter.view;
 
 /**
  * A class that controls and displays the Score.

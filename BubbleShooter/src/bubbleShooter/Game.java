@@ -1,4 +1,4 @@
-package BubbleShooter;
+package bubbleShooter;
 
 public class Game {
 

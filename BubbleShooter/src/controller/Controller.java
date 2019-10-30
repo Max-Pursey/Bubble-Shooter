@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import Model.Bubble;
+import model.Bubble;
 
 /**
  * A class for managing the shooting of the bubble

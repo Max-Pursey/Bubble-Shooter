@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Controller.Controller;
+import controller.Controller;
 
 /**
  * A class that displays board, bubbles, and bubble shooter

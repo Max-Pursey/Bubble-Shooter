@@ -1,4 +1,4 @@
-package View;
+package view;
 
 /**
  * A class that controls and displays the Score.

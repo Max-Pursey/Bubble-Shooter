@@ -2,7 +2,7 @@ package Model;
 
 import java.awt.Color;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 import javax.swing.JFrame;
 
 /**
@@ -16,7 +16,23 @@ public class Model extends JFrame {
 	 * @param args not used
 	 */
 	public static void main(String[] args) {
-		run();
+		System.out.print("Enter any key to create a board: ");
+		Scanner scan = new Scanner(System.in);
+		scan.nextLine();
+		System.out.println("\n\n");
+		scan.close();
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 17; j++) {
+				Bubble a = new Bubble(null, null, null, null, null, null);
+				System.out.print(a.toString() + "  ");
+			}
+			System.out.println("");
+			if(i%2 == 0)
+				System.out.print("   ");
+		}
+		Bubble a = new Bubble(null, null, null, null, null, null);
+		System.out.println("\n\n\n\n\t\t\t\t\t\t\t\t" + a.toString());
+		//run();
 	}
 	
 	/**
@@ -24,7 +40,7 @@ public class Model extends JFrame {
 	 * and its user 
 	 */
 	public static void run() {
-		
+		Board board = Board.getInstance();
 	}
 	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {

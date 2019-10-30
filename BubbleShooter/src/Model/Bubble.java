@@ -11,6 +11,7 @@ public class Bubble
 	private Bubble bottomLeft;
 	private Bubble bottomRight;
 	private Color color;
+	private String colorString;
 	private boolean marked;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
@@ -40,7 +41,7 @@ public class Bubble
 		if (thisBottomRight != null) {
 			thisBottomRight.topLeft = this;
 		}
-		color = randomColor();
+		color = this.randomColor();
 	}
 	
 	/**
@@ -98,21 +99,15 @@ public class Bubble
 	}
 	
 	
-	public static Color randomColor() {
+	public Color randomColor() {
 		double randNumber = Math.random() * 6;
 		
-		if(randNumber > 5)
-			return Color.RED;
-		else if(randNumber > 4)
-			return Color.YELLOW;
-		else if(randNumber > 3)
-			return Color.GREEN;
-		else if(randNumber > 2)
-			return Color.CYAN;
-		else if(randNumber > 1)
-			return Color.BLUE;
-		else
-			return Color.PINK;
+		if(randNumber > 5) 		{ colorString = " Red  "; return Color.RED; }
+		else if(randNumber > 4) { colorString = "Yellow"; return Color.YELLOW; }
+		else if(randNumber > 3)	{ colorString = "Green "; return Color.GREEN; }
+		else if(randNumber > 2)	{ colorString = " Cyan "; return Color.CYAN; }
+		else if(randNumber > 1)	{ colorString = " Blue "; return Color.BLUE; }
+		else					{ colorString = " Pink "; return Color.PINK; }
 	}
 	/**
 	 * This returns the color of the bubble.
@@ -135,6 +130,6 @@ public class Bubble
 	}
 	
 	public String toString() {
-		return color.toString();
+		return colorString;
 	}
 }

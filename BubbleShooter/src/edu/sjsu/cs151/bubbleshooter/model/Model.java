@@ -21,6 +21,8 @@ public class Model extends JFrame {
 		scan.nextLine();
 		System.out.println("\n\n");
 		scan.close();
+		run();
+		/*
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 17; j++) {
 				Bubble a = new Bubble(null, null, null, null, null, null);
@@ -31,8 +33,8 @@ public class Model extends JFrame {
 				System.out.print("   ");
 		}
 		Bubble a = new Bubble(null, null, null, null, null, null);
-		System.out.println("\n\n\n\n\t\t\t\t\t\t\t\t" + a.toString());
-		//run();
+		System.out.println("\n\n\n\n\t\t\t\t\t\t\t\t" + a.toString());		
+		*/
 	}
 	
 	/**
@@ -40,7 +42,17 @@ public class Model extends JFrame {
 	 * and its user 
 	 */
 	public static void run() {
-		Board board = Board.getInstance();
+		
+		// doesn't work because of bug in board at line 21: out of bounds -1. i think you need to add another corner case for top row that dont have any bubbles above.
+		Bubble[][] bubbles = Board.getInstance().getBoardBubbles();
+		for(int i = 0; i < bubbles.length; i++) {
+			for(int j = 0; j < bubbles[0].length; j++) {
+				System.out.print(bubbles[i][j].toString() + "  ");
+			}
+			System.out.println("");
+			if(i%2 == 0)
+				System.out.print("   ");
+		}
 	}
 	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {

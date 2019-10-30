@@ -42,4 +42,8 @@ public final class Board {
 	public static Board getInstance() {
 		return INSTANCE;
 	}
+	
+	public Bubble[][] getBoardBubbles() {
+		return board;
+	}
 }

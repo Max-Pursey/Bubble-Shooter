@@ -119,10 +119,7 @@ public class Bubble
 	}
 	
 	public void flipMarked() {
-		if(marked)
-			marked = false;
-		else
-			marked = true;
+		marked = !marked;
 	}
 	
 	public boolean getMarked() {

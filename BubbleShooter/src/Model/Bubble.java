@@ -13,7 +13,7 @@ public class Bubble
 	private Color color;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
-	Bubble thisBottomRight, Color thisColor)
+	Bubble thisBottomRight)
 	{
 		left = thisLeft;
 		if (thisLeft != null) {
@@ -39,7 +39,7 @@ public class Bubble
 		if (thisBottomRight != null) {
 			thisBottomRight.topLeft = this;
 		}
-		color = thisColor;
+		color = randomColor();
 	}
 	
 	/**
@@ -96,6 +96,23 @@ public class Bubble
 		return bottomRight;
 	}
 	
+	
+	public static Color randomColor() {
+		double randNumber = Math.random() * 6;
+		
+		if(randNumber > 5)
+			return Color.RED;
+		else if(randNumber > 4)
+			return Color.YELLOW;
+		else if(randNumber > 3)
+			return Color.GREEN;
+		else if(randNumber > 2)
+			return Color.CYAN;
+		else if(randNumber > 1)
+			return Color.BLUE;
+		else
+			return Color.PINK;
+	}
 	/**
 	 * This returns the color of the bubble.
 	 * @return color
@@ -103,5 +120,9 @@ public class Bubble
 	public Color getColor()
 	{
 		return color;
+	}
+	
+	public String toString() {
+		return color.toString;
 	}
 }

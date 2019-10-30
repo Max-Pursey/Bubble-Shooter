@@ -84,7 +84,10 @@ public class Model extends JFrame {
 	
 	
 	// if arraylist greater than 3 pop them and add to scoreboard
+	// IM CURRENTLY WORKING ON THIS ONE
 	public void pop(ArrayList<Bubble> pop) {
+		
+		
 	}
 	
 	public void movement(Bubble bubble) {

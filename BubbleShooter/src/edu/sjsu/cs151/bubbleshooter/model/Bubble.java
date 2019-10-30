@@ -59,18 +59,10 @@ public class Bubble
 		else if	(randNumber > 1)	{ colorString = " Blue "; return Color.BLUE; 	}
 		else						{ colorString = " Pink "; return Color.PINK; 	}
 	}	
-	/**
-	 * This returns the color of the bubble.
-	 * @return color
-	 */
-
-	
-	public void flipMarked() {
-		marked = !marked;
-	}
 	
 	
-	public String toString() {
-		return colorString;
-	}
+	public void flipMarked() { marked = !marked; }
+	
+	
+	public String toString() { return colorString; }
 }

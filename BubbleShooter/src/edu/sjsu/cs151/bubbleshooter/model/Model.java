@@ -84,9 +84,20 @@ public class Model extends JFrame {
 	
 	
 	// if arraylist greater than 3 pop them and add to scoreboard
-	// IM CURRENTLY WORKING ON THIS ONE
+	// scoreboard needs to be implemented
+	// @precondition pop.size() >= 3
 	public void pop(ArrayList<Bubble> pop) {
-		
+		for(Bubble source: pop) {
+			source.left.right 			= null;
+			source.right.left 			= null;
+			source.topLeft.bottomRight 	= null;
+			source.topRight.bottomLeft 	= null;
+			source.bottomLeft.topRight 	= null;
+			source.bottomRight.topLeft 	= null;
+			int x = source.x;
+			int y = source.y;
+			Board.getInstance().removeBubble(x,y);
+		}
 		
 	}
 	

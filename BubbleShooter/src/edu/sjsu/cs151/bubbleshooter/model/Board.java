@@ -46,4 +46,9 @@ public final class Board {
 	public Bubble[][] getBoardBubbles() {
 		return board;
 	}
+	
+	
+	public void removeBubble(int x, int y) {
+		board[x][y] = null;
+	}
 }

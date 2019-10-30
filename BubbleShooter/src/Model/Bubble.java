@@ -11,6 +11,7 @@ public class Bubble
 	private Bubble bottomLeft;
 	private Bubble bottomRight;
 	private Color color;
+	private boolean marked;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
 	Bubble thisBottomRight)
@@ -122,7 +123,18 @@ public class Bubble
 		return color;
 	}
 	
+	public void flipMarked() {
+		if(marked)
+			marked = false;
+		else
+			marked = true;
+	}
+	
+	public boolean getMarked() {
+		return marked;
+	}
+	
 	public String toString() {
-		return color.toString;
+		return color.toString();
 	}
 }

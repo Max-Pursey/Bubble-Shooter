@@ -1,5 +1,8 @@
 package Model;
 
+import java.awt.Color;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 /**
@@ -53,7 +56,7 @@ public class Model extends JFrame {
 	
 	
 	// if arraylist greater than 3 pop them and add to scoreboard
-	public void pop(Arraylist<Bubble> pop) {
+	public void pop(ArrayList<Bubble> pop) {
 	}
 	
 	/**

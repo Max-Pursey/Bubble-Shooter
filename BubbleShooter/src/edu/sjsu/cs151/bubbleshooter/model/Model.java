@@ -68,7 +68,7 @@ public class Model extends JFrame {
 		
 		if(c == source.topLeft.color && !source.topLeft.marked)
 			combination.addAll(checkCombinations(source.topLeft));
-		
+	 	
 		if(c == source.topRight.color && !source.topRight.marked)
 			combination.addAll(checkCombinations(source.topRight));
 		

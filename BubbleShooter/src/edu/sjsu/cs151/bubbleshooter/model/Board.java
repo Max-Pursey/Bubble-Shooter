@@ -35,13 +35,29 @@ public final class Board {
 			{
 				if(y % 2 == 0)
 				{
-					Bubble bubble = new Bubble(board[x-1][y], null, null, board[x+1][y-1], null, null);	
-					board[x][y] = bubble;
+					if(x == 0)
+					{
+						Bubble bubble = new Bubble(board[x-1][y], null, null, board[x][y-1], null, null);	
+						board[x][y] = bubble;
+					}
+					else
+					{
+						Bubble bubble = new Bubble(board[x-1][y], null, board[x-1][y-1], board[x][y-1], null, null);	
+						board[x][y] = bubble;
+					}
 				}
 				else
 				{
-					Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], board[x+1][y-1], null, null);	
-					board[x][y] = bubble;
+					if(x == 5)
+					{
+						Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], null, null, null);	
+						board[x][y] = bubble;
+					}
+					else
+					{
+						Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], board[x+1][y-1], null, null);	
+						board[x][y] = bubble;
+					}
 				}
 			}
 		}

@@ -102,13 +102,13 @@ public class Bubble
 	public Color randomColor() {
 		double randNumber = Math.random() * 6;
 		
-		if(randNumber > 5) 		{ colorString = " Red  "; return Color.RED; }
-		else if(randNumber > 4) { colorString = "Yellow"; return Color.YELLOW; }
-		else if(randNumber > 3)	{ colorString = "Green "; return Color.GREEN; }
-		else if(randNumber > 2)	{ colorString = " Cyan "; return Color.CYAN; }
-		else if(randNumber > 1)	{ colorString = " Blue "; return Color.BLUE; }
-		else					{ colorString = " Pink "; return Color.PINK; }
-	}
+		if		(randNumber > 5) 	{ colorString = " Red  "; return Color.RED; 	}
+		else if	(randNumber > 4) 	{ colorString = "Yellow"; return Color.YELLOW; 	}
+		else if	(randNumber > 3)	{ colorString = "Green "; return Color.GREEN; 	}
+		else if	(randNumber > 2)	{ colorString = " Cyan "; return Color.CYAN; 	}
+		else if	(randNumber > 1)	{ colorString = " Blue "; return Color.BLUE; 	}
+		else						{ colorString = " Pink "; return Color.PINK; 	}
+	}	
 	/**
 	 * This returns the color of the bubble.
 	 * @return color

@@ -15,29 +15,29 @@ public final class Board {
 	 * Constructs a Board object that holds the grid of bubbles.
 	 */
 	private Board() {
-		board = new Bubble[5][5]; 
-		for(int x = 0; x < 5; x++)
+		board = new Bubble[10][10]; 
+		for(int x = 0; x < 10; x++)
 		{
 			if(x == 0)
 			{
 				Bubble bubble = new Bubble(null, null, null, null, null, null);	
-				board[x][1] = bubble;
+				board[x][0] = bubble;
 			}
 			else
 			{
-				Bubble bubble = new Bubble(board[x-1][1], null, null, null, null, null);	
-				board[x][1] = bubble;
+				Bubble bubble = new Bubble(board[x-1][0], null, null, null, null, null);	
+				board[x][0] = bubble;
 			}
 		}
-		for(int y = 1; y < 3; y++)
+		for(int y = 1; y < 4; y++)
 		{
-			for(int x = 0; x < 5; x++)
+			for(int x = 0; x < 10; x++)
 			{
 				if(y % 2 == 0)
 				{
 					if(x == 0)
 					{
-						Bubble bubble = new Bubble(board[x-1][y], null, null, board[x][y-1], null, null);	
+						Bubble bubble = new Bubble(null, null, null, board[x][y-1], null, null);	
 						board[x][y] = bubble;
 					}
 					else
@@ -48,9 +48,14 @@ public final class Board {
 				}
 				else
 				{
-					if(x == 5)
+					if(x == 9)
 					{
 						Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], null, null, null);	
+						board[x][y] = bubble;
+					}
+					else if(x == 0)
+					{
+						Bubble bubble = new Bubble(null, null, board[x][y-1], board[x+1][y-1], null, null);	
 						board[x][y] = bubble;
 					}
 					else

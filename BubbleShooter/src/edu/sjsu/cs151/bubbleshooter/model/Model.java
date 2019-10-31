@@ -12,31 +12,16 @@ import javax.swing.JFrame;
 public class Model extends JFrame {
 
 	public final static double MAGNITUDE = .1;
+	public final static Scanner scan = new Scanner(System.in);
 	
 	/**
 	 * Main method that runs the game
 	 * @param args not used
 	 */
 	public static void main(String[] args) {
-		System.out.print("Enter any key to create a board: ");
-		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter any key to run: ");
 		scan.nextLine();
-		System.out.println("\n\n");
-		scan.close();
 		run();
-		/*
-		for(int i = 0; i < 10; i++) {
-			for(int j = 0; j < 17; j++) {
-				Bubble a = new Bubble(null, null, null, null, null, null);
-				System.out.print(a.toString() + "  ");
-			}
-			System.out.println("");
-			if(i%2 == 0)
-				System.out.print("   ");
-		}
-		Bubble a = new Bubble(null, null, null, null, null, null);
-		System.out.println("\n\n\n\n\t\t\t\t\t\t\t\t" + a.toString());		
-		*/
 	}
 	
 	/**
@@ -44,17 +29,24 @@ public class Model extends JFrame {
 	 * and its user 
 	 */
 	public static void run() {
+		Board board = Board.getInstance();
+		System.out.println("\nBoard Created.");
 		
-		// doesn't work because of bug in board at line 21: out of bounds -1. i think you need to add another corner case for top row that dont have any bubbles above.
-		Bubble[][] bubbles = Board.getInstance().getBoardBubbles();
-		for(int i = 0; i < bubbles.length; i++) {
-			for(int j = 0; j < bubbles[0].length; j++) {
-				System.out.print(bubbles[i][j].toString() + "  ");
-			}
-			System.out.println("");
-			if(i%2 == 0)
-				System.out.print("   ");
-		}
+		System.out.println("Preparing to fire a bubble...");
+		System.out.print("Enter the x vector dimension(-5.0 to 5.0): ");
+		double xVec = scan.nextDouble();
+		System.out.print("Enter the y vector dimension(0.1 to 5.0): ");
+		double yVec = scan.nextDouble();
+		
+		// bubble created outside the board
+		Bubble loaded = new Bubble(null,null,null,null,null,null);
+		loaded.x = 4;
+		loaded.y = 10;
+		loaded.dx = xVec;
+		loaded.dy = yVec;
+		System.out.println("\nBubble Created.");
+		
+		System.out.println("Enter any to to fire");
 	}
 	
 	void settleBubble(Bubble waywardBubble)

@@ -92,6 +92,22 @@ public final class Board {
 		}
 	}
 	
+	void Visit(Visitor visitor)
+	{
+		for(int y = 1; y < 10; y++)
+		{
+			for(int x = 0; x < 10; x++)
+			{
+				visitor.visitBubble(board[x][y]);	
+			}
+		}
+	}
+	
+	public void setBubble(int x, int y, Bubble bubble)
+	{
+		board[x][y] = bubble;
+	}
+	
 	public static Board getInstance() {
 		return INSTANCE;
 	}

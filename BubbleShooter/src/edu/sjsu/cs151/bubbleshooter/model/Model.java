@@ -55,6 +55,11 @@ public class Model extends JFrame {
 		}
 	}
 	
+	void settleBubble(Bubble settledBubble, Bubble waywardBubble)
+	{
+		
+	}
+	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {
 		Color c = source.color;
 		source.flipMarked();

@@ -38,31 +38,6 @@ public class Model extends JFrame {
 	}
 	
 	/**
-	 * assigns every bubble a coordinate based off a hex grid.
-	 */
-	public void buildBoard(Bubble[][] board)
-	{
-		for(double i = 0; i < board.length; i++) 
-		{
-			for(double j = 0; j < board[0].length; j++) 
-			{
-				double xCoordinate = i;
-				double yCoordinate = j;
-				if(j % 2 == 0)
-				{
-					board[i][j].x = i;
-					board[i][j].y = j;
-				}
-				else
-				{
-					board[i][j].x = xCoordinate + 0.5;
-					board[i][j].y = j;
-				}
-			}
-		}
-	}
-	
-	/**
 	 * The main running part of the program that controls the game
 	 * and its user 
 	 */
@@ -119,8 +94,8 @@ public class Model extends JFrame {
 			source.topRight.bottomLeft 	= null;
 			source.bottomLeft.topRight 	= null;
 			source.bottomRight.topLeft 	= null;
-			int x = source.x;
-			int y = source.y;
+			int x = (int) source.x;
+			int y = (int) source.y;
 			Board.getInstance().removeBubble(x,y);
 		}
 		

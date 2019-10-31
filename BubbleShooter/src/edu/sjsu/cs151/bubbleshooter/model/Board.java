@@ -15,18 +15,26 @@ public final class Board {
 	 * Constructs a Board object that holds the grid of bubbles.
 	 */
 	private Board() {
-		board = new Bubble[10][10]; 
+		board = new Bubble[10][10];
+		double xCoordinate = 0;
+		double yCoordinate = 0;
 		for(int x = 0; x < 10; x++)
 		{
 			if(x == 0)
 			{
 				Bubble bubble = new Bubble(null, null, null, null, null, null);	
 				board[x][0] = bubble;
+				xCoordinate = 0;
+				bubble.x = xCoordinate;
+				bubble.y = yCoordinate;
 			}
 			else
 			{
 				Bubble bubble = new Bubble(board[x-1][0], null, null, null, null, null);	
 				board[x][0] = bubble;
+				xCoordinate = xCoordinate + 1;
+				bubble.x = xCoordinate;
+				bubble.y = yCoordinate;
 			}
 		}
 		for(int y = 1; y < 4; y++)
@@ -39,11 +47,17 @@ public final class Board {
 					{
 						Bubble bubble = new Bubble(null, null, null, board[x][y-1], null, null);	
 						board[x][y] = bubble;
-					}
+						xCoordinate = 0;
+						bubble.x = xCoordinate;
+						bubble.y = yCoordinate;    // this is setting the y coordinate to the actual value which is slightly less than 1.
+	 				}
 					else
 					{
 						Bubble bubble = new Bubble(board[x-1][y], null, board[x-1][y-1], board[x][y-1], null, null);	
 						board[x][y] = bubble;
+						xCoordinate = xCoordinate + 1;
+						bubble.x = xCoordinate;
+						bubble.y = yCoordinate;
 					}
 				}
 				else
@@ -52,16 +66,25 @@ public final class Board {
 					{
 						Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], null, null, null);	
 						board[x][y] = bubble;
+						xCoordinate = xCoordinate + 1;
+						bubble.x = xCoordinate;                 // This offsets the X coordinate to make it follow a hex grid.
+						bubble.y = yCoordinate;
 					}
 					else if(x == 0)
 					{
 						Bubble bubble = new Bubble(null, null, board[x][y-1], board[x+1][y-1], null, null);	
 						board[x][y] = bubble;
+						xCoordinate = 0.5;
+						bubble.x = xCoordinate;
+						bubble.y = yCoordinate;
 					}
 					else
 					{
 						Bubble bubble = new Bubble(board[x-1][y], null, board[x][y-1], board[x+1][y-1], null, null);	
 						board[x][y] = bubble;
+						xCoordinate = xCoordinate + 1;
+						bubble.x = xCoordinate;
+						bubble.y = yCoordinate;
 					}
 				}
 			}

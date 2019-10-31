@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 public class Model extends JFrame {
 
+	public final static double MAGNITUDE = .1;
+	
 	/**
 	 * Main method that runs the game
 	 * @param args not used
@@ -116,8 +118,10 @@ public class Model extends JFrame {
 		
 	}
 	
-	public void movement(Bubble bubble) {
+	public void moveBubble(Bubble bubble) {
 		// adds the vector to position
+		bubble.x = bubble.x + bubble.dx * MAGNITUDE;
+		bubble.y = bubble.y + bubble.dy * MAGNITUDE;
 	}
 	
 	/**

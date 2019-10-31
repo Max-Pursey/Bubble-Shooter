@@ -116,7 +116,32 @@ public final class Board {
 			bubble.right = board[x+1][y];
 			board[x+1][y].left = bubble;
 		}
-		
+		if(y % 2 == 0)
+		{
+			if(board[x-1][y-1] != null)
+			{
+				bubble.topLeft = board[x-1][y-1];
+				board[x-1][y-1].bottomRight = bubble;
+			}
+			if(board[x][y-1] != null)
+			{
+				bubble.topRight = board[x][y-1];
+				board[x][y-1].bottomLeft = bubble;
+			}
+		}
+		else
+		{
+			if(board[x][y-1] != null)
+			{
+				bubble.topLeft = board[x][y-1];
+				board[x][y-1].bottomRight = bubble;
+			}
+			if(board[x+1][y-1] != null)
+			{
+				bubble.topRight = board[x+1][y-1];
+				board[x+1][y-1].bottomLeft = bubble;
+			}
+		}
 	}
 	
 	public static Board getInstance() {

@@ -14,6 +14,8 @@ public class ModelTest
 		{
 			System.out.println("Success!");
 		}
+		Model tester = new Model();
+		tester.settleBubble(collider);
 		System.out.println("Done!");
 	}
 }

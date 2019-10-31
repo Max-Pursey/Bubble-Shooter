@@ -70,6 +70,15 @@ public class Model extends JFrame {
 			currentX = (int) Math.round(waywardBubble.x-0.5);
 		}
 		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
+		if(currentY % 2 != 0)
+		{
+			waywardBubble.y = currentY*0.8660254038;
+			waywardBubble.x = currentX+0.5;
+		}
+		else
+		{
+			waywardBubble.y = currentY*0.8660254038;
+		}
 	}
 	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {

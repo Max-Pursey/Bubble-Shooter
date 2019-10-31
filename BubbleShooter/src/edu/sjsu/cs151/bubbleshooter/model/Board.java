@@ -92,7 +92,7 @@ public final class Board {
 		}
 	}
 	
-	void Visit(Visitor visitor)
+	public void visit(Visitor visitor)
 	{
 		for(int y = 1; y < 10; y++)
 		{
@@ -106,6 +106,17 @@ public final class Board {
 	public void setBubble(int x, int y, Bubble bubble)
 	{
 		board[x][y] = bubble;
+		if(board[x-1][y] != null)
+		{
+			bubble.left = board[x-1][y];
+			board[x-1][y].right = bubble;
+		}
+		if(board[x+1][y] != null)
+		{
+			bubble.right = board[x+1][y];
+			board[x+1][y].left = bubble;
+		}
+		
 	}
 	
 	public static Board getInstance() {

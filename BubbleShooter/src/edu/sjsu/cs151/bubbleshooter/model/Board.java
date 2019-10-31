@@ -39,7 +39,7 @@ public final class Board {
 		}
 		for(int y = 1; y < 4; y++)
 		{
-			yCoordinate = yCoordinate + 0.8660254038;
+			yCoordinate = yCoordinate + 0.8660254038;  //this is the vertical distance between hexes.
 			for(int x = 0; x < 10; x++)
 			{
 				if(y % 2 == 0)

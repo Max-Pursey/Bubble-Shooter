@@ -55,9 +55,19 @@ public class Model extends JFrame {
 		}
 	}
 	
-	void settleBubble(Bubble settledBubble, Bubble waywardBubble)
+	void settleBubble(Bubble waywardBubble)
 	{
-		
+		int currentX;
+		int currentY = (int) Math.round(waywardBubble.y/0.8660254038);
+		if(currentY % 2 != 0)
+		{
+			currentX = (int) Math.round(waywardBubble.x);
+		}
+		else
+		{
+			currentX = (int) Math.round(waywardBubble.x-0.5);
+		}
+		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
 	}
 	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {

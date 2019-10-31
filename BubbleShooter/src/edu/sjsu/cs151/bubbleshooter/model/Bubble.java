@@ -15,8 +15,8 @@ public class Bubble
 	public boolean 	marked;
 	public double 		x;
 	public double 		y;
-	public int 		dx;
-	public int 		dy;
+	public double 		dx;
+	public double 		dy;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
 	Bubble thisBottomRight)

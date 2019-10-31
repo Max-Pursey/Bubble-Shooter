@@ -13,8 +13,8 @@ public class Bubble
 	public Color 	color;
 	public String 	colorString;
 	public boolean 	marked;
-	public int 		x;
-	public int 		y;
+	public double 		x;
+	public double 		y;
 	public int 		dx;
 	public int 		dy;
 	

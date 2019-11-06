@@ -26,7 +26,7 @@ public class BubbleShape {
 		return width;
 	}
 	
-	public void translate(int dx, int dy) {
+	public void translate(double dx, double dy) {
 		x += dx;
 		y += dy;
 	}

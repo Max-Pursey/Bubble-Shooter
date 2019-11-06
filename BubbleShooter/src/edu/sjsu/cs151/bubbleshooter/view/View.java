@@ -7,12 +7,15 @@ import javax.swing.*;
 public class View {
 	
 	private static final int BUBBLE_WIDTH = 20;
+	private static final int ICON_HEIGHT = 400;
+	private static final int ICON_WIDTH = 500;
+	
 
 	public static void main(String[] args) {
 		
 		JFrame frame = new JFrame("Bubble view");
-		final BubbleShape shape = new BubbleShape(0, 0, BUBBLE_WIDTH);
-		ShapeIcon icon = new ShapeIcon(shape, (int)(Math.random() * 400), (int)(Math.random() * 300));
+		final BubbleShape shape = new BubbleShape(250 - ( BUBBLE_WIDTH /2), 400 - BUBBLE_WIDTH, BUBBLE_WIDTH);
+		ShapeIcon icon = new ShapeIcon(shape, ICON_WIDTH, ICON_HEIGHT);
 		final JLabel label = new JLabel(icon);
 		frame.setLayout(new FlowLayout());
 		frame.add(label);
@@ -21,10 +24,10 @@ public class View {
 		frame.pack();
 		frame.setVisible(true);
 		
-		int x = 1;
-		int y = 1;
+		double x = ((Math.random()*10)-5);
+		double y = (Math.random()*-5);
 		
-		final int DELAY = 50;
+		final int DELAY = 15;
 	      // Milliseconds between timer ticks
 	      Timer t = new Timer(DELAY, new
 	         ActionListener()

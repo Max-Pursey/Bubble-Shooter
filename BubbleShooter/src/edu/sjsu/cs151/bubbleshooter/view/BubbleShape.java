@@ -3,11 +3,12 @@ package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.*;
 import java.awt.geom.*;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
+import java.awt.Color;
 
 public class BubbleShape {
 	
-	private int x;
-	private int y;
+	public int x;
+	public int y;
 	private int width;
 	private Bubble bub;
 	
@@ -37,6 +38,9 @@ public class BubbleShape {
 		g2.setColor(bub.color);
 		g2.fill(bubble);
 		g2.draw(bubble);
+		Ellipse2D.Double bubble2 = new Ellipse2D.Double(x + width/2, y, width, width);
+		g2.setColor(Color.BLACK);
+		g2.draw(bubble2);
 		
 	}
 }

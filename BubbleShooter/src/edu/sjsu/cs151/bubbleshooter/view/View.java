@@ -9,6 +9,8 @@ public class View {
 	private static final int BUBBLE_WIDTH = 20;
 	private static final int ICON_HEIGHT = 400;
 	private static final int ICON_WIDTH = 500;
+	public static double x = ((Math.random()*10)-5);
+	public static double y = (Math.random()*-5);
 	
 
 	public static void main(String[] args) {
@@ -24,8 +26,8 @@ public class View {
 		frame.pack();
 		frame.setVisible(true);
 		
-		double x = ((Math.random()*10)-5);
-		double y = (Math.random()*-5);
+		
+		
 		
 		final int DELAY = 15;
 	      // Milliseconds between timer ticks
@@ -36,6 +38,10 @@ public class View {
 	            {
 	               shape.translate(x, y);
 	               label.repaint();
+	               if(shape.x <= 0 || shape.x >= ICON_WIDTH - BUBBLE_WIDTH)
+	            	   x *= -1;
+	               if(shape.y <= 0 || shape.y >= ICON_HEIGHT - BUBBLE_WIDTH)
+	            	   y *= -1;
 	            }
 	         });
 	      t.start();

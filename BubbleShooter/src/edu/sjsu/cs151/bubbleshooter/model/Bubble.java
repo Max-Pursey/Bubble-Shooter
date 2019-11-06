@@ -57,7 +57,7 @@ public class Bubble
 		else if	(randNumber > 3)	{ colorString = "Green "; return Color.GREEN; 	}
 		else if	(randNumber > 2)	{ colorString = " Cyan "; return Color.CYAN; 	}
 		else if	(randNumber > 1)	{ colorString = " Blue "; return Color.BLUE; 	}
-		else						{ colorString = " Pink "; return Color.PINK; 	}
+		else						{ colorString = " Pink "; return Color.MAGENTA; }
 	}	
 	
 	

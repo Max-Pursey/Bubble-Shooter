@@ -7,8 +7,10 @@ import java.awt.Color;
 
 public class BubbleShape {
 	
-	public int x;
-	public int y;
+	public double x;
+	public double y;
+	public double dx = ((Math.random()*10)-5);
+	public double dy = (Math.random()*-5);
 	private int width;
 	private Bubble bub;
 	
@@ -27,7 +29,7 @@ public class BubbleShape {
 		return width;
 	}
 	
-	public void translate(double dx, double dy) {
+	public void translate() {
 		x += dx;
 		y += dy;
 	}

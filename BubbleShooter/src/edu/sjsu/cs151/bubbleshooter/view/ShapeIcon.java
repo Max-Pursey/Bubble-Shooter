@@ -7,10 +7,10 @@ import javax.swing.Icon;
 
 public class ShapeIcon implements Icon
 {
-   public ShapeIcon(BubbleShape shape,
+   public ShapeIcon(BubbleShape[] shapes,
       int width, int height)
    {
-      this.shape = shape;
+      this.shapes = shapes;
       this.width = width;
       this.height = height;
    }
@@ -28,10 +28,11 @@ public class ShapeIcon implements Icon
    public void paintIcon(Component c, Graphics g, int x, int y)
    {
       Graphics2D g2 = (Graphics2D) g;
-      shape.draw(g2);
+      for(int i = 0; i < View.bubblesShown; i++)
+    	  shapes[i].draw(g2);
    }
 
    private int width;
    private int height;
-   private BubbleShape shape;
+   private BubbleShape[] shapes;
 }

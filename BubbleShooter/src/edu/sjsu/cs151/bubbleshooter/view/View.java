@@ -6,18 +6,26 @@ import javax.swing.*;
 
 public class View {
 	
-	private static final int BUBBLE_WIDTH = 20;
+	private static final int BUBBLE_WIDTH = 25;
 	private static final int ICON_HEIGHT = 400;
 	private static final int ICON_WIDTH = 500;
-	public static double x = ((Math.random()*10)-5);
-	public static double y = (Math.random()*-5);
+	private static BubbleShape[] shapes;
+	public static int loopCount = 0;
+	public static int bubblesShown = 1;
+	
 	
 
 	public static void main(String[] args) {
 		
 		JFrame frame = new JFrame("Bubble view");
-		final BubbleShape shape = new BubbleShape(250 - ( BUBBLE_WIDTH /2), 400 - BUBBLE_WIDTH, BUBBLE_WIDTH);
-		ShapeIcon icon = new ShapeIcon(shape, ICON_WIDTH, ICON_HEIGHT);
+		
+		int numBubbles = 500;
+		shapes = new BubbleShape[numBubbles];
+		for(int i = 0; i < numBubbles; i++) {
+			final BubbleShape shape = new BubbleShape(250 - ( BUBBLE_WIDTH /2), 400 - BUBBLE_WIDTH, BUBBLE_WIDTH);
+			shapes[i] = shape;
+		}
+		ShapeIcon icon = new ShapeIcon(shapes, ICON_WIDTH, ICON_HEIGHT);
 		final JLabel label = new JLabel(icon);
 		frame.setLayout(new FlowLayout());
 		frame.add(label);
@@ -28,7 +36,6 @@ public class View {
 		
 		
 		
-		
 		final int DELAY = 15;
 	      // Milliseconds between timer ticks
 	      Timer t = new Timer(DELAY, new
@@ -36,12 +43,21 @@ public class View {
 	         {
 	            public void actionPerformed(ActionEvent event)
 	            {
-	               shape.translate(x, y);
+	               for(int i = 0; i < bubblesShown; i++) { 
+	            	   shapes[i].translate();
+	            	   if(shapes[i].x <= 0 || shapes[i].x >= ICON_WIDTH - BUBBLE_WIDTH)
+		            	   shapes[i].dx *= -1;
+		               if(shapes[i].y <= 0 || shapes[i].y >= ICON_HEIGHT - BUBBLE_WIDTH)
+		            	   shapes[i].dy *= -1;
+	               }
 	               label.repaint();
-	               if(shape.x <= 0 || shape.x >= ICON_WIDTH - BUBBLE_WIDTH)
-	            	   x *= -1;
-	               if(shape.y <= 0 || shape.y >= ICON_HEIGHT - BUBBLE_WIDTH)
-	            	   y *= -1;
+	               loopCount++;
+	               if(loopCount > 30) {
+	            	   bubblesShown++;
+	            	   loopCount = 0;
+	               }
+	               if(bubblesShown > numBubbles)
+	            	   bubblesShown = numBubbles;
 	            }
 	         });
 	      t.start();

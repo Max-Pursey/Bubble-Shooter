@@ -6,9 +6,9 @@ import javax.swing.*;
 
 public class View {
 	
-	private static final int BUBBLE_WIDTH = 25;
-	private static final int ICON_HEIGHT = 400;
-	private static final int ICON_WIDTH = 500;
+	private static final int BUBBLE_WIDTH = 30;
+	private static final int ICON_HEIGHT = 500;
+	private static final int ICON_WIDTH = 800;
 	
 	// maximum number of bubbles to be shown in the animation
 	private static final int numBubbles = 200;
@@ -28,7 +28,7 @@ public class View {
 		// for each of these, instantiate them with their position
 		// at the middle bottom of the screen
 		for(int i = 0; i < numBubbles; i++) 
-			shapes[i] = new BubbleShape(250 - ( BUBBLE_WIDTH /2), 400 - BUBBLE_WIDTH, BUBBLE_WIDTH);
+			shapes[i] = new BubbleShape(ICON_WIDTH / 2 - ( BUBBLE_WIDTH /2), ICON_HEIGHT - BUBBLE_WIDTH, BUBBLE_WIDTH);
 		
 		// create a ShapeIcon what the array of BubbleShapes
 		ShapeIcon icon = new ShapeIcon(shapes, ICON_WIDTH, ICON_HEIGHT);

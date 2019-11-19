@@ -24,15 +24,26 @@ public class ShapeIcon implements Icon
    {
       return height;
    }
+   
+   public int getBubblesShown() 
+   {
+	   return bubblesShown;
+   }
+   
+   public void setBubblesShown(int shown)
+   {
+	   bubblesShown = shown;
+   }
 
    public void paintIcon(Component c, Graphics g, int x, int y)
    {
       Graphics2D g2 = (Graphics2D) g;
-      for(int i = 0; i < View.bubblesShown; i++)
+      for(int i = 0; i < bubblesShown; i++)
     	  shapes[i].draw(g2);
    }
 
    private int width;
    private int height;
    private BubbleShape[] shapes;
+   private static int bubblesShown = 0;
 }

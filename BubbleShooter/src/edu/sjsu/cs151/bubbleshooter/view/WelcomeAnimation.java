@@ -66,10 +66,6 @@ public class WelcomeAnimation {
 	            			shapes[i].dy *= -1;
 	            	}
 	               
-	            	// repaints the jlabel of icon.
-	            	// icon holds the array of bubbles so it repaints all bubbles
-	            	label.repaint();
-	               
 	            	// increases the timer loop count by one
 	            	loopCount++;
 	            	
@@ -83,6 +79,10 @@ public class WelcomeAnimation {
 	            	// number of bubbles, set them equal
 	            	if(icon.getBubblesShown() > numBubbles)
 	            		icon.setBubblesShown(numBubbles);
+
+	            	// repaints the jlabel of icon.
+	            	// icon holds the array of bubbles so it repaints all bubbles
+	            	label.repaint();
 	            }
 	    	});
 	    t.start();

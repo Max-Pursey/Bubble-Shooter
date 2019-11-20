@@ -56,11 +56,11 @@ private int score;
 		String name3 = "Finn";
 		String name4 = "Po";
 		String name5 = "Horace";
-		JLabel scoreLabel1 = new JLabel(name1 + "500");
-		JLabel scoreLabel2 = new JLabel(name2 + "400");
-		JLabel scoreLabel3 = new JLabel(name3 + "300");
-		JLabel scoreLabel4 = new JLabel(name4 + "200");
-		JLabel scoreLabel5 = new JLabel(name5 + "100");
+		JLabel scoreLabel1 = new JLabel(name1 + " 500");
+		JLabel scoreLabel2 = new JLabel(name2 + " 400");
+		JLabel scoreLabel3 = new JLabel(name3 + " 300");
+		JLabel scoreLabel4 = new JLabel(name4 + " 200");
+		JLabel scoreLabel5 = new JLabel(name5 + " 100");
 		
 		scoreBoard.add(scoreLabel1);
 		scoreBoard.add(scoreLabel2);

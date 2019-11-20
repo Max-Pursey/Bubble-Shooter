@@ -17,6 +17,10 @@ public class GameView {
 		
 		JPanel game = new JPanel();
 		game.setPreferredSize(new Dimension(GAME_WIDTH, GAME_HEIGHT));
+		
+		BoardIcon boardIcon = new BoardIcon();
+		JLabel label = new JLabel(boardIcon);
+		game.add(label);
 				
 		// for each of these, instantiate them with their position
 		// at the middle bottom of the screen

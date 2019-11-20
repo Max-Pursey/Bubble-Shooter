@@ -78,7 +78,7 @@ private int score;
 		frame.setPreferredSize(new Dimension(1920, 1080));
 		frame.setLayout(new BorderLayout());
 		
-		frame.add(scoreBoard, BorderLayout.CENTER);
+		frame.add(scoreBoard, BorderLayout.NORTH);
 		
 		frame.pack();
 		frame.setVisible(true);

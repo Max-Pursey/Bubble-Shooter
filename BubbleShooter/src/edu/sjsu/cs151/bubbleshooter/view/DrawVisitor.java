@@ -4,7 +4,7 @@ import edu.sjsu.cs151.bubbleshooter.model.*;
 
 public class DrawVisitor implements Visitor
 {
-	private static final int WIDTH_OF_A_BUBBLE = 30;
+	private static final int WIDTH_OF_A_BUBBLE = 50;
 	private BubbleShape bubbleShape;
 	private Graphics2D g2;
 	
@@ -17,7 +17,7 @@ public class DrawVisitor implements Visitor
 	{
 		if(bubble != null)
 		{
-			bubbleShape = new BubbleShape(bubble.x*WIDTH_OF_A_BUBBLE, bubble.y*WIDTH_OF_A_BUBBLE, WIDTH_OF_A_BUBBLE, bubble);
+			bubbleShape = new BubbleShape(bubble.x*WIDTH_OF_A_BUBBLE + 100, bubble.y*WIDTH_OF_A_BUBBLE, WIDTH_OF_A_BUBBLE, bubble);
 			bubbleShape.draw(g2);
 		}
 	}

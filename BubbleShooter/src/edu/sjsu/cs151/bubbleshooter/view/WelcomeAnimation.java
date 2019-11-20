@@ -6,23 +6,10 @@ import javax.swing.*;
 
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
-public class WelcomeAnimation {
-	
-	private static final int BUBBLE_WIDTH = 30;
-	private static final int ICON_HEIGHT = 500;
-	private static final int ICON_WIDTH = 800;
-	
-	// maximum number of bubbles to be shown in the animation
-	private static final int numBubbles = 200;
-	
-	// values used in timer loop
-	public static int loopCount = 0;
+public class WelcomeAnimation extends JPanel{
 	
 	
-	
-	public static void main(String[] args) {
-		
-		JFrame frame = new JFrame("Welcome Animation");
+	public WelcomeAnimation() {
 		
 		// creates an array of BubbleShape objects the size of numBubbles
 		BubbleShape[] shapes = new BubbleShape[numBubbles];
@@ -39,14 +26,7 @@ public class WelcomeAnimation {
 		ShapeIcon icon = new ShapeIcon(shapes, ICON_WIDTH, ICON_HEIGHT);
 		final JLabel label = new JLabel(icon);
 		
-		// set JFrame layout to FLowLayout and add the icon JLabel
-		frame.setLayout(new FlowLayout());
-		frame.add(label);
-		
-		// housekeeping to setup the JFrame window		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
-		frame.setVisible(true);
+		add(label);
 		
 		
 		// 
@@ -87,4 +67,16 @@ public class WelcomeAnimation {
 	    	});
 	    t.start();
 	}
+	
+	
+	
+	private static final int BUBBLE_WIDTH = 30;
+	public static final int ICON_HEIGHT = 500;
+	public static final int ICON_WIDTH = 800;
+	
+	// maximum number of bubbles to be shown in the animation
+	private static final int numBubbles = 200;
+	
+	// values used in timer loop
+	public static int loopCount = 0;
 }

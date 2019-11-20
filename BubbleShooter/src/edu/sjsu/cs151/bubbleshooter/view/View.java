@@ -32,6 +32,7 @@ public class View {
 		// frame.getContentPane().invalidate();
 		// frame.getContentPane().
 		
+		//game view
 	    
 	}
 }

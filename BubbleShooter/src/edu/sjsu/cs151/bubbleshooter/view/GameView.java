@@ -4,12 +4,11 @@ import java.awt.*;
 
 import javax.swing.*;
 
-public class GameView {
-
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("Border Layout Test");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
+public class GameView extends JPanel {
+	
+	public GameView() {
+		
+		setLayout(new BorderLayout());
 		
 		
 		JPanel game = new JPanel();
@@ -38,11 +37,9 @@ public class GameView {
 		info.add(quitButton);
 		
 		
-		frame.add(game, BorderLayout.NORTH);
-		frame.add(info, BorderLayout.SOUTH);
+		add(game, BorderLayout.NORTH);
+		add(info, BorderLayout.SOUTH);
 		
-		frame.pack();
-		frame.setVisible(true);
 	}
 	
 	private static int game_score = 330;

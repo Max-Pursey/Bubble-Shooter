@@ -1,21 +1,27 @@
 package edu.sjsu.cs151.bubbleshooter.view;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 
 public class View {
 	
+	private static JFrame frame;
+	private static JPanel welcomeAnim;
+	private static JButton startButton;
+	private static JPanel gameView;
 	
 	public static void main(String[] args) {
 		
-		JFrame frame = new JFrame("Bubble Shooter");
+		frame = new JFrame("Bubble Shooter");
 		
-		JPanel welcomeAnim = new WelcomeAnimation();
+		welcomeAnim = new WelcomeAnimation();
 		
-		JButton startButton = new JButton("Start");
+		startButton = new JButton("Start");
 		startButton.setPreferredSize(new Dimension(WelcomeAnimation.ICON_WIDTH, 40));
+		startButton.addActionListener(event -> startGame());
+		
+		gameView = new GameView();
 
 		frame.add(welcomeAnim, BorderLayout.NORTH);
 		frame.add(startButton, BorderLayout.SOUTH);
@@ -24,15 +30,13 @@ public class View {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-		
-		//timer
-		
-		// frame.getContentPane().remove(welcomeAnim);
-		// frame.getContentPane().remove(startButton);
-		// frame.getContentPane().invalidate();
-		// frame.getContentPane().
-		
-		//game view
-	    
+	}
+	
+	public static void startGame() {
+		frame.getContentPane().remove(welcomeAnim);
+		frame.getContentPane().remove(startButton);
+		frame.getContentPane().add(gameView);
+		frame.getContentPane().invalidate();
+		frame.getContentPane().validate();
 	}
 }

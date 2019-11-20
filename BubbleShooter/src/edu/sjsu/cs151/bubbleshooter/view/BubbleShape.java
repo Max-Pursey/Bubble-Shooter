@@ -11,21 +11,21 @@ public class BubbleShape {
 	public double y;
 	public double dx = ((Math.random()*10)-5);
 	public double dy = (Math.random()*-5);
-	private int width;
+	private double width;
 	private Bubble bub;
 	
-	public BubbleShape(int x, int y, int width, Bubble thisBub) {
+	public BubbleShape(double x, double y, double width, Bubble thisBub) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.bub = thisBub;
 	}
 	
-	public int getIconWidth() {
+	public double getIconWidth() {
 		return width;
 	}
 	
-	public int getIconHeight() {
+	public double getIconHeight() {
 		return width;
 	}
 	

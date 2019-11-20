@@ -14,11 +14,11 @@ public class BubbleShape {
 	private int width;
 	private Bubble bub;
 	
-	public BubbleShape(int x, int y, int width) {
+	public BubbleShape(int x, int y, int width, Bubble thisBub) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
-		this.bub = new Bubble(null,null,null,null,null,null);
+		this.bub = thisBub;
 	}
 	
 	public int getIconWidth() {

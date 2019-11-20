@@ -20,7 +20,7 @@ public class CollisionVisitor implements Visitor {
 		if(bubble != null)
 		{
 			double heightDistance = bubble.y - testBubble.y;
-			double lengthDistance = bubble.x - testBubble.y;
+			double lengthDistance = bubble.x - testBubble.x;
 			double distance = Math.sqrt(heightDistance*heightDistance+lengthDistance*lengthDistance); //Pythagorean Theorem to find distance between 2 bubbles
 			if(distance < RADIUS_OF_A_BUBBLE*2)
 			{

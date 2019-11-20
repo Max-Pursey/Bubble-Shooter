@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import edu.sjsu.cs151.bubbleshooter.model.Bubble;
+
 public class WelcomeAnimation {
 	
 	private static final int BUBBLE_WIDTH = 30;
@@ -28,7 +30,10 @@ public class WelcomeAnimation {
 		// for each of these, instantiate them with their position
 		// at the middle bottom of the screen
 		for(int i = 0; i < numBubbles; i++) 
-			shapes[i] = new BubbleShape(ICON_WIDTH / 2 - ( BUBBLE_WIDTH /2), ICON_HEIGHT - BUBBLE_WIDTH, BUBBLE_WIDTH);
+		{
+			Bubble bub = new Bubble(null,null,null,null,null,null);
+			shapes[i] = new BubbleShape(ICON_WIDTH / 2 - ( BUBBLE_WIDTH /2), ICON_HEIGHT - BUBBLE_WIDTH, BUBBLE_WIDTH, bub);
+		}
 		
 		// create a ShapeIcon what the array of BubbleShapes
 		ShapeIcon icon = new ShapeIcon(shapes, ICON_WIDTH, ICON_HEIGHT);

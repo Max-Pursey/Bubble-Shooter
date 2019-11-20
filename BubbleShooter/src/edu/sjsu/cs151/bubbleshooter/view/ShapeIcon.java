@@ -45,5 +45,5 @@ public class ShapeIcon implements Icon
    private int width;
    private int height;
    private BubbleShape[] shapes;
-   private static int bubblesShown = 0;
+   public static int bubblesShown = 0;
 }

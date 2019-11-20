@@ -46,7 +46,7 @@ public class Scoreboard extends JPanel
 		add(textBoard, BorderLayout.NORTH);
 		
 		JButton quitButton = new JButton("Back to Menu");
-		quitButton.addActionListener(event -> System.exit(0));
+		quitButton.addActionListener(event -> View.returnToWelcome());
 		quitButton.setPreferredSize(new Dimension(600/4, 400/10));
 		
 		add(quitButton, BorderLayout.SOUTH);

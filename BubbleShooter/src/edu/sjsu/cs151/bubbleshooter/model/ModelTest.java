@@ -7,7 +7,7 @@ public class ModelTest
 		Bubble[][] test = Board.getInstance().getBoardBubbles();
 		Bubble collider = new Bubble(null,null,null,null,null,null);
 		collider.x = 3;
-		collider.y = 3.8;
+		collider.y = 2.5;
 		CollisionVisitor collisionVisitor = new CollisionVisitor(collider);
 		Board.getInstance().visit(collisionVisitor);
 		if(collisionVisitor.getCollision() != null)

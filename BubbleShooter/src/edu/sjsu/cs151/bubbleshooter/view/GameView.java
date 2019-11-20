@@ -3,18 +3,24 @@ package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.*;
 
 import javax.swing.*;
+import edu.sjsu.cs151.bubbleshooter.model.Board;
+import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
 public class GameView extends JPanel {
-	
+
 	public GameView() {
-		
+
+
 		setLayout(new BorderLayout());
+
 		
 		
 		JPanel game = new JPanel();
 		game.setPreferredSize(new Dimension(GAME_WIDTH, GAME_HEIGHT));
-		
-		
+				
+		// for each of these, instantiate them with their position
+		// at the middle bottom of the screen
+
 		JPanel info = new JPanel();
 		info.setLayout(new FlowLayout());
 		

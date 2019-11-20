@@ -3,16 +3,16 @@ package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.*;
 
 import javax.swing.*;
-
 import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
-public class GameView {
+public class GameView extends JPanel {
 
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("Border Layout Test");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout());
+	public GameView() {
+
+
+		setLayout(new BorderLayout());
+
 		
 		
 		JPanel game = new JPanel();
@@ -47,11 +47,9 @@ public class GameView {
 		info.add(quitButton);
 		
 		
-		frame.add(game, BorderLayout.NORTH);
-		frame.add(info, BorderLayout.SOUTH);
+		add(game, BorderLayout.NORTH);
+		add(info, BorderLayout.SOUTH);
 		
-		frame.pack();
-		frame.setVisible(true);
 	}
 	
 	private static int game_score = 330;

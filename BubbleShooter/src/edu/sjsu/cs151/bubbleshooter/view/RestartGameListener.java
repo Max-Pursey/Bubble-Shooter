@@ -11,7 +11,6 @@ public class RestartGameListener implements ActionListener {
 		catch(InterruptedException exception) {
 			exception.printStackTrace();
 		}
-		
 		GameView.label.repaint();
 	}
 

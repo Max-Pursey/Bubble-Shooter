@@ -11,6 +11,7 @@ public class FireBubbleListener implements MouseListener {
 		catch(InterruptedException exception) {
 			exception.printStackTrace();
 		}
+		System.out.println("test2");
 	}
 
 	@Override

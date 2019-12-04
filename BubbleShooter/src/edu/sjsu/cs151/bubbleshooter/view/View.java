@@ -1,7 +1,11 @@
 package edu.sjsu.cs151.bubbleshooter.view;
 
 import java.awt.*;
+import java.util.concurrent.BlockingQueue;
+
 import javax.swing.*;
+
+import edu.sjsu.cs151.bubbleshooter.controller.Message;
 
 
 public class View {
@@ -12,6 +16,11 @@ public class View {
 	private static JPanel scoreboardView;
 	private static JButton startButton;
 	private static JButton scoreButton;
+	
+	public static View init(BlockingQueue<Message> queue) {
+		return new View();
+		// temporary code
+	}
 	
 	public static void main(String[] args) {
 		
@@ -70,5 +79,10 @@ public class View {
 		frame.getContentPane().add(scoreButton, BorderLayout.SOUTH);
 		frame.getContentPane().invalidate();
 		frame.getContentPane().validate();
+	}
+
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
 	}
 }

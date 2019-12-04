@@ -168,6 +168,10 @@ public final class Board {
 	public void fillAmmo()
 	{
 		for(int i = 0; i < 6; i++)
+		{
 			ammo.add(new Bubble(null,null,null,null,null,null));
+			ammo.get(i).x = i;
+			ammo.get(i).y = 8.660254038; // the y coordinate of a bubble in the ammo.
+		}
 	}
 }

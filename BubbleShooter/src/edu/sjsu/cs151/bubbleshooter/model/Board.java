@@ -20,6 +20,8 @@ public final class Board {
 	 */
 	private Board() {
 		board = new Bubble[10][10];
+		ammo = new ArrayList<Bubble>();
+		this.fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
 		for(int x = 0; x < 10; x++)

@@ -14,7 +14,6 @@ public class DrawVisitorTester
 	{
 		BoardIcon boardIcon = new BoardIcon();
 		JFrame frame = new JFrame("TEST");
-		Board.getInstance().fillAmmo();
 		final JLabel label = new JLabel(boardIcon);
 		
 		frame.setLayout(new FlowLayout());

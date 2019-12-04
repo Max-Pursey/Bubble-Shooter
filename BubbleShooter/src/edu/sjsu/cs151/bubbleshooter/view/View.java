@@ -80,6 +80,11 @@ public class View extends JFrame{
 		frame.getContentPane().invalidate();
 		frame.getContentPane().validate();
 	}
+	
+	public static JPanel getGameView()
+	{
+		return gameView;
+	}
 
 	public void dispose() {
 		// TODO Auto-generated method stub

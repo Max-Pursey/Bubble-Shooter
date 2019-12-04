@@ -14,6 +14,7 @@ public final class Board {
 	private static final Board INSTANCE = new Board();
 	public static Bubble[][] board;
 	public static ArrayList<Bubble> ammo;
+	public static int numAmmo;
 	
 	/**
 	 * Constructs a Board object that holds the grid of bubbles.
@@ -21,6 +22,7 @@ public final class Board {
 	private Board() {
 		board = new Bubble[10][10];
 		ammo = new ArrayList<Bubble>();
+		numAmmo = 5;
 		this.fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
@@ -113,6 +115,7 @@ public final class Board {
 		}
 		for(int i = 0; i < ammo.size(); i++)
 			ammo.remove(i);
+		numAmmo = 5;
 		this.fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
@@ -259,12 +262,11 @@ public final class Board {
 	 */
 	public void fillAmmo()
 	{
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < numAmmo; i++)
 		{
 			ammo.add(new Bubble(null,null,null,null,null,null));
-			//ammo.get(i).x = i;
-			//ammo.get(i).y = 8.660254038; // the y coordinate of a bubble in the ammo.
 		}
+		allignAmmo();
 		
 	}
 	

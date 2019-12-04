@@ -31,7 +31,7 @@ public class FireBubbleValve implements Valve {
 		Bubble fired = gi.getAmmo().get(gi.getAmmo().size()-1);
 		//System.out.println(fired.x + ", " + fired.y);
 		Bubble[][] board = gi.getBoardInfo();
-		Board.allignAmmo();
+		
 		fired.dx = dx;
 		fired.dy = dy;
 		CollisionVisitor cv = new CollisionVisitor(fired);
@@ -54,6 +54,9 @@ public class FireBubbleValve implements Valve {
 			fired.y += -fired.dy;
 		
 			// if x is out of boundaries, flip the dx
+			if(fired.x < 0 || fired.x > 10)
+				fired.dx *= -1;
+			
 			//if(fired.x <= 125 || fired.x >= 650)
 				//fired.dx *= -1;
 			try {
@@ -102,12 +105,13 @@ public class FireBubbleValve implements Valve {
 		Board.ammo.remove(gi.getAmmo().get(gi.getAmmo().size() - 1));
 		
 		// check combinations and pop if possible
-		//ArrayList<Bubble> bubs = Model.checkCombinations(fired);
+		ArrayList<Bubble> bubs = Model.checkCombinations(fired);
 		//Model.pop(bubs);
 		
 		// increment ammo appropriately
 		
 		// update view
+		Board.allignAmmo();
 		GameView.label.repaint();
 		
 		return ValveResponse.EXECUTED;

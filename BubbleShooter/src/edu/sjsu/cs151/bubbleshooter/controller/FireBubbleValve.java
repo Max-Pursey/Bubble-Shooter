@@ -17,13 +17,15 @@ public class FireBubbleValve implements Valve {
 		y = (p.getY() - 495) * -1 ;
 		
 		
-		System.out.println(x + ", " + y);
+		//System.out.println(x + ", " + y);
 		double q = Math.sqrt((x*x)+(y*y));
 		dx = x/q;
 		dy = y/q;
-		System.out.println(dx + ", " + dy);
+		//System.out.println(dx + ", " + dy);
+		if(x < 0)
+			return ValveResponse.EXECUTED;
 		GameInfo gi = new GameInfo();
-		Bubble fired = gi.getAmmo().get(gi.getAmmo().size());
+		Bubble fired = gi.getAmmo().get(gi.getAmmo().size()-1);
 		Bubble[][] board = gi.getBoardInfo();
 		fired.dx = dx;
 		fired.dy = dy;

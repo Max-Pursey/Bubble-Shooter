@@ -44,8 +44,6 @@ public class FireBubbleValve implements Valve {
 				}
 			}
 			
-			if(cv.getCollision() != null)
-				System.out.println("HIT");
 			// update view
 			GameView.label.repaint();
 			
@@ -68,8 +66,6 @@ public class FireBubbleValve implements Valve {
 		}
 		Bubble firstCollided = cv.getCollision();
 		// set bubble x and y to appropriate final locations
-		System.out.println(fired.x + ", " + fired.y);
-		System.out.println(firstCollided.x + ", " + firstCollided.y);
 		
 		int i = -1;
 		if(fired.x > firstCollided.x)
@@ -87,7 +83,6 @@ public class FireBubbleValve implements Valve {
 			fired.x = firstCollided.x + i;
 			fired.y = firstCollided.y;
 		}
-		System.out.println(fired.x + ", " + fired.y);
 		// set bubble dx, dy to 0
 		
 		fired.dx = 0;
@@ -109,6 +104,11 @@ public class FireBubbleValve implements Valve {
 		//Model.pop(bubs);
 		
 		// increment ammo appropriately
+		if(gi.getAmmo().isEmpty()) {
+			Board.numAmmo--;
+			Board.fillAmmo();
+			Model.addRow();
+		}
 		
 		// update view
 		Board.allignAmmo();

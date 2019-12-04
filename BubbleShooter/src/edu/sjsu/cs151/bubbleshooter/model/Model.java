@@ -77,7 +77,7 @@ public class Model extends JFrame {
 	/**
 	 * adds a row to the game board.
 	 */
-	public void addRow()
+	public static void addRow()
 	{
 		Board.getInstance();
 		for(int x = Board.board.length-1; x >= 0; x--)
@@ -227,17 +227,24 @@ public class Model extends JFrame {
 		source.flipMarked();
 		ArrayList<Bubble> combination = new ArrayList<>();
 		
-		if(source.left != null && c == source.left.color && !source.left.marked)
+		return combination;
+		
+		/*
+		if(source.left != null && c == source.left.color)
 			combination.addAll(checkCombinations(source.left));
 		
 		if(source.right != null && c == source.right.color && !source.right.marked)
 			combination.addAll(checkCombinations(source.right));
 		
-		if(source.topLeft != null && c == source.topLeft.color && !source.topLeft.marked)
+		if(source.topLeft != null && c == source.topLeft.color && !source.topLeft.marked) {
 			combination.addAll(checkCombinations(source.topLeft));
+			System.out.println("topleft");
+		}
 	 	
-		if(source.topRight != null && c == source.topRight.color && !source.topRight.marked)
+		if(source.topRight != null && c == source.topRight.color && !source.topRight.marked) {
 			combination.addAll(checkCombinations(source.topRight));
+			System.out.println("topright");
+		}
 		
 		if(source.bottomLeft != null && c == source.bottomLeft.color && !source.bottomLeft.marked)
 			combination.addAll(checkCombinations(source.bottomLeft));
@@ -245,7 +252,9 @@ public class Model extends JFrame {
 		if(source.bottomRight != null && c == source.bottomRight.color && !source.bottomRight.marked)
 			combination.addAll(checkCombinations(source.bottomRight));
 		
+		combination.add(source);
 		return combination;
+		*/
 	}
 	
 	

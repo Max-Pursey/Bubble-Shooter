@@ -23,7 +23,7 @@ public final class Board {
 		board = new Bubble[10][10];
 		ammo = new ArrayList<Bubble>();
 		numAmmo = 5;
-		this.fillAmmo();
+		fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
 		for(int x = 0; x < 10; x++)
@@ -105,7 +105,6 @@ public final class Board {
 	 */
 	public void repopulateBoard()
 	{
-		System.out.println("clear board checkmark");
 		for(int y = 0; y < board.length; y++)
 		{
 			for(int x = 0; x < board[y].length; x++)
@@ -116,7 +115,7 @@ public final class Board {
 		for(int i = 0; i < ammo.size(); i++)
 			ammo.remove(i);
 		numAmmo = 5;
-		this.fillAmmo();
+		fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
 		for(int x = 0; x < 10; x++)
@@ -260,8 +259,10 @@ public final class Board {
 	/**
 	 * Fills the ammo arraylist with new bubbles.
 	 */
-	public void fillAmmo()
+	public static void fillAmmo()
 	{
+		if(numAmmo < 1)
+			numAmmo = 1;
 		for(int i = 0; i < numAmmo; i++)
 		{
 			ammo.add(new Bubble(null,null,null,null,null,null));

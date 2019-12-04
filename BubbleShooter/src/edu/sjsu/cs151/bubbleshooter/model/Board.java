@@ -1,5 +1,7 @@
 package edu.sjsu.cs151.bubbleshooter.model;
 
+import java.util.ArrayList;
+
 import edu.sjsu.cs151.bubbleshooter.controller.Controller;
 import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 
@@ -11,6 +13,7 @@ public final class Board {
 
 	private static final Board INSTANCE = new Board();
 	public Bubble[][] board;
+	public ArrayList<Bubble> ammo;
 	
 	/**
 	 * Constructs a Board object that holds the grid of bubbles.
@@ -153,8 +156,16 @@ public final class Board {
 		return board;
 	}
 	
-	
 	public void removeBubble(int x, int y) {
 		board[x][y] = null;
+	}
+	
+	/**
+	 * Fills the ammo arraylist with new bubbles.
+	 */
+	public void fillAmmo()
+	{
+		for(int i = 0; i < 6; i++)
+			ammo.add(new Bubble(null,null,null,null,null,null));
 	}
 }

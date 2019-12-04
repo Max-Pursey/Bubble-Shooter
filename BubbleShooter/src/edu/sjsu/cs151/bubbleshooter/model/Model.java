@@ -13,7 +13,6 @@ public class Model extends JFrame {
 
 	public final static double MAGNITUDE = .1;
 	public final static Scanner scan = new Scanner(System.in);
-	private ArrayList<Bubble> ammo;
 	
 	/**
 	 * Main method that runs the game
@@ -72,15 +71,6 @@ public class Model extends JFrame {
 			waywardBubble.y = currentY*0.8660254038;
 		}
 		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
-	}
-	
-	/**
-	 * Fills the ammo arraylist with new bubbles.
-	 */
-	public void fillAmmo()
-	{
-		for(int i = 0; i < 6; i++)
-			ammo.add(new Bubble(null,null,null,null,null,null));
 	}
 	
 	/**

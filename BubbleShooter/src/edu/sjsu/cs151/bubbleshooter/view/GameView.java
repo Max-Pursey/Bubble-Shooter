@@ -7,8 +7,6 @@ import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
 public class GameView extends JPanel {
-	
-	public JLabel label;
 
 	public GameView() {
 
@@ -33,7 +31,7 @@ public class GameView extends JPanel {
 		
 		JButton restartButton = new JButton("Restart");
 		restartButton.setPreferredSize(new Dimension(GAME_WIDTH/4, GAME_HEIGHT/10));
-		restartButton.addMouseListener(new FireBubbleListener());
+		restartButton.addActionListener(new RestartGameListener());
 		
 		JLabel scoreLabel = new JLabel("Score:   " + game_score);
 		scoreLabel.setFont(new Font(scoreLabel.getName(), Font.PLAIN, 20));

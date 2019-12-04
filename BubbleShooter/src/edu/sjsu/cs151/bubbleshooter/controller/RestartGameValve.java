@@ -11,9 +11,8 @@ public class RestartGameValve implements Valve {
 		}
 		// actions in model
 		Board.getInstance().repopulateBoard();
-		GameInfo restartedGame = new GameInfo();
 		// actions in view
-		View.getGameView()
+		View.returnToWelcome();
 		return ValveResponse.EXECUTED;
 	}
 

@@ -1,5 +1,7 @@
 package edu.sjsu.cs151.bubbleshooter.model;
 
+import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
+
 public class CollisionVisitor implements Visitor {
 	private Bubble testBubble;
 	private Bubble collisionBubble;

@@ -83,6 +83,9 @@ public class Model extends JFrame {
 			ammo.add(new Bubble(null,null,null,null,null,null));
 	}
 	
+	/**
+	 * adds a row to the game board.
+	 */
 	public void addRow()
 	{
 		for(int x = Board.getInstance().board.length-1; x >= 0; x--)

@@ -1,5 +1,7 @@
 package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.*;
+
+import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 import edu.sjsu.cs151.bubbleshooter.model.*;
 
 public class DrawVisitor implements Visitor

@@ -1,6 +1,7 @@
 package edu.sjsu.cs151.bubbleshooter.model;
 
 import edu.sjsu.cs151.bubbleshooter.controller.Controller;
+import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 
 /**
  * A class that displays board, bubbles, and bubble shooter

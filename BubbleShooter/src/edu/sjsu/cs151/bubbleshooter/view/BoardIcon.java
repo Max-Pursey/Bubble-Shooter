@@ -44,7 +44,10 @@ public class BoardIcon implements Icon
 
 	public void paintIcon(Component c, Graphics g, int x, int y) 
 	{
-	    visit(new DrawVisitor(g));
+		DrawVisitor visitor = new DrawVisitor(g);
+		visitor.visitBorder();
+		visit(visitor);
+	    
 	}
 
 }

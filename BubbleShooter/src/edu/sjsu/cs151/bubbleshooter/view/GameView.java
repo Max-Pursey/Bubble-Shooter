@@ -20,6 +20,7 @@ public class GameView extends JPanel {
 		
 		BoardIcon boardIcon = new BoardIcon();
 		JLabel label = new JLabel(boardIcon);
+		label.addMouseListener(new FireBubbleListener());
 		game.add(label);
 				
 		// for each of these, instantiate them with their position

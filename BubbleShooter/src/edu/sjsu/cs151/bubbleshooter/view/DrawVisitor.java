@@ -23,6 +23,10 @@ public class DrawVisitor implements Visitor
 			bubbleShape.draw(g2);
 		}
 	}
+	
+	public void visitBorder()
+	{
+		BorderShape a = new BorderShape();
+		a.draw(g2);
+	}
 }
-
-

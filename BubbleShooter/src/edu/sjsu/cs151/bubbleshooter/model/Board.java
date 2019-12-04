@@ -94,7 +94,7 @@ public final class Board {
 	
 	public void visit(Visitor visitor)
 	{
-		for(int y = 1; y < board.length; y++)
+		for(int y = 0; y < board.length; y++)
 		{
 			for(int x = 0; x < board[y].length; x++)
 			{

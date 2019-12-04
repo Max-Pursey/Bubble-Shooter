@@ -13,6 +13,7 @@ public class Model extends JFrame {
 
 	public final static double MAGNITUDE = .1;
 	public final static Scanner scan = new Scanner(System.in);
+	private ArrayList<Bubble> ammo;
 	
 	/**
 	 * Main method that runs the game
@@ -73,6 +74,91 @@ public class Model extends JFrame {
 		}
 	}
 	
+	/**
+	 * Fills the ammo arraylist with new bubbles.
+	 */
+	public void fillAmmo()
+	{
+		for(int i = 0; i < 6; i++)
+			ammo.add(new Bubble(null,null,null,null,null,null));
+	}
+	
+	public void addRow()
+	{
+		for(int x = Board.getInstance().board.length; x >= 0; x--)
+		{
+			if(x == Board.getInstance().board.length)
+			{
+				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
+				Board.getInstance().board[x][0].bottomRight = null;
+			}
+			else
+			{
+				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
+				Board.getInstance().board[x][0].bottomRight = Board.getInstance().board[x+1][1];
+			}
+		}
+		for(int x = Board.getInstance().board.length; x >= 0; x--)
+		{
+			for(int y = Board.getInstance().board[x].length; y >= 1; y--)
+			{
+				if(Board.getInstance().board[x][y] != null && y+1 != 10)
+				{
+					if(y == 0)
+					{
+						Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
+						Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x+1][y+1];
+					}
+					if(y%2 == 0)
+					{
+						if(x == Board.getInstance().board.length)
+						{
+							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x][y].topRight;
+							Board.getInstance().board[x][y].topRight = null;
+							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
+							Board.getInstance().board[x][y].bottomRight = null;
+						}
+						else
+						{
+							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x][y].topRight;
+							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x+1][y-1];
+							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
+							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x+1][y+1];
+						}
+					}
+					else
+					{
+						if(x == 0)
+						{
+							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x][y].topLeft;
+							Board.getInstance().board[x][y].topLeft = null;
+							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x][y].bottomLeft;
+							Board.getInstance().board[x][y].bottomLeft = null;
+						}
+						else
+						{
+							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x][y].topLeft;
+							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x-1][y-1];
+							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x][y].bottomLeft;
+							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x-1][y+1];
+						}
+					}
+					Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
+					Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
+				}
+			}
+		}
+		for(int x = 0; x < Board.getInstance().board.length; x++)
+		{
+			if(x == 0)
+				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, null, Board.getInstance().board[x][1]);
+			else
+			{
+				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, Board.getInstance().board[x-1][1], Board.getInstance().board[x][1]);
+			}
+		}
+	}
+	
 	public static ArrayList<Bubble> checkCombinations(Bubble source) {
 		Color c = source.color;
 		source.flipMarked();
@@ -124,9 +210,4 @@ public class Model extends JFrame {
 		bubble.x = bubble.x + bubble.dx * MAGNITUDE;
 		bubble.y = bubble.y + bubble.dy * MAGNITUDE;
 	}
-	
-	/**
-	 *  Paint components of the board 
-	 *  @param g the Graphics2D object
-	 */
 }

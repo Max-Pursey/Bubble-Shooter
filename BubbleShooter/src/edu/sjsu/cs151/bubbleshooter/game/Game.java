@@ -14,10 +14,6 @@ public class Game {
 
 	
 	public static void main(String[] args) {
-		run();
-	}
-	
-	public static void run() {
 		view = View.init(queue);
 		model = new Model();
 		Controller game = new Controller(view, model, queue);

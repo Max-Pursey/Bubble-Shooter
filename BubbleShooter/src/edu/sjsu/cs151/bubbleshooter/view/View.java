@@ -8,7 +8,7 @@ import javax.swing.*;
 import edu.sjsu.cs151.bubbleshooter.controller.Message;
 
 
-public class View {
+public class View extends JFrame{
 	
 	private static JFrame frame;
 	private static JPanel welcomeAnim;
@@ -22,7 +22,7 @@ public class View {
 		// temporary code
 	}
 	
-	public static void main(String[] args) {
+	public View() {
 		
 		frame = new JFrame("Bubble Shooter");
 		

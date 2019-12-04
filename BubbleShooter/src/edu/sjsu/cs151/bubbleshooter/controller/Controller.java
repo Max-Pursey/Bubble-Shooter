@@ -13,18 +13,33 @@ public class Controller {
 	private View view;
 	private Model model;
 	private Board gameinfo;
-	List<Valve> valves = new LinkedList<Valve>();
+	private List<Valve> valves = new LinkedList<Valve>();
 	
 	
 	public Controller(View view, Model model, BlockingQueue<Message> queue) {
 		this.view = view;
 		this.model = model;
 		this.messageQueue = queue;
+		valves.add(new FireBubbleValve());
 	}
 	
 	
 	public void mainLoop() {
-		
+		ValveResponse response = ValveResponse.EXECUTED;
+		Message message = null;
+		while(response != ValveResponse.FINISH) {
+			try {
+				message = (Message)messageQueue.take();
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+			for(Valve valve : valves) {
+				response = valve.execute(message);
+				if(response != ValveResponse.MISS)
+					break;
+			}
+		}
 	}
 	
 	public void updateGameInfo() {

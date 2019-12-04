@@ -43,7 +43,7 @@ public final class Board {
 				bubble.y = yCoordinate;
 			}
 		}
-		for(int y = 1; y < 6; y++)
+		for(int y = 1; y < 5; y++)
 		{
 			yCoordinate = yCoordinate + 0.8660254038;  //this is the vertical distance between hexes.
 			for(int x = 0; x < 10; x++)

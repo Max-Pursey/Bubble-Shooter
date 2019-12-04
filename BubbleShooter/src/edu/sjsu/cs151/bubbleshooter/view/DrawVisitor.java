@@ -21,12 +21,20 @@ public class DrawVisitor implements Visitor
 		{
 			bubbleShape = new BubbleShape(bubble.x*WIDTH_OF_A_BUBBLE + 100, bubble.y*WIDTH_OF_A_BUBBLE, WIDTH_OF_A_BUBBLE, bubble);
 			bubbleShape.draw(g2);
+			
 		}
+		
 	}
 	
 	public void visitBorder()
 	{
 		BorderShape a = new BorderShape();
 		a.draw(g2);
+	}
+	
+	public void visitLoaded(Bubble bubble)
+	{
+		bubbleShape = new BubbleShape(bubble.x*WIDTH_OF_A_BUBBLE + 100, bubble.y*WIDTH_OF_A_BUBBLE, WIDTH_OF_A_BUBBLE, bubble);
+		bubbleShape.draw(g2);
 	}
 }

@@ -3,6 +3,7 @@ package edu.sjsu.cs151.bubbleshooter.controller;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.PointerInfo;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import edu.sjsu.cs151.bubbleshooter.model.*;
@@ -22,7 +23,7 @@ public class FireBubbleValve implements Valve {
 		
 		
 		//System.out.println(x + ", " + y);
-		double q = Math.sqrt((x*x)+(y*y));
+		double q = Math.sqrt((x*x)+(y*y))*10;
 		dx = x/q;
 		dy = y/q;
 		//System.out.println(dx + ", " + dy);
@@ -30,11 +31,10 @@ public class FireBubbleValve implements Valve {
 		Bubble fired = gi.getAmmo().get(gi.getAmmo().size()-1);
 		//System.out.println(fired.x + ", " + fired.y);
 		Bubble[][] board = gi.getBoardInfo();
+		Board.allignAmmo();
 		fired.dx = dx;
 		fired.dy = dy;
 		CollisionVisitor cv = new CollisionVisitor(fired);
-		System.out.println(fired.x + ", " + fired.y);
-		System.out.println("checkmark1");
 		while(cv.getCollision() == null) {
 			
 			for(Bubble[] bs : board)
@@ -56,8 +56,6 @@ public class FireBubbleValve implements Valve {
 			// if x is out of boundaries, flip the dx
 			//if(fired.x <= 125 || fired.x >= 650)
 				//fired.dx *= -1;
-			System.out.println(fired.x + ", " + fired.y);
-			System.out.println("checkmark2");
 			try {
 				TimeUnit.MILLISECONDS.sleep(10);
 			} catch (InterruptedException e) {
@@ -65,20 +63,52 @@ public class FireBubbleValve implements Valve {
 				e.printStackTrace();
 			}
 		}
-
-		System.out.println("checkmark3");
+		Bubble firstCollided = cv.getCollision();
 		// set bubble x and y to appropriate final locations
+		System.out.println(fired.x + ", " + fired.y);
+		System.out.println(firstCollided.x + ", " + firstCollided.y);
 		
+		int i = -1;
+		if(fired.x > firstCollided.x)
+			i = 1;
+		
+		if(fired.y - firstCollided.dy < .5) {
+			fired.x = firstCollided.x + (.5 * i);
+			fired.y = firstCollided.y - Math.sqrt(3)/2;
+		}
+		else if(fired.y - firstCollided.y > .5) {
+			fired.x = firstCollided.x + (.5 * i);
+			fired.y = firstCollided.y + Math.sqrt(3)/2;
+		}
+		else {
+			fired.x = firstCollided.x + i;
+			fired.y = firstCollided.y;
+		}
+		System.out.println(fired.x + ", " + fired.y);
 		// set bubble dx, dy to 0
+		
+		fired.dx = 0;
+		fired.dy = 0;
+		
+		// add bubble to board
+		
+		double newX = Math.round(fired.x - 0.25);
+		double newY = (fired.y * (2 / Math.sqrt(3))) + Math.sqrt(3) *2;
+		
+		Board.setBubble((int)newX, (int)newY, fired);
 		
 		// remove bubble from ammo
 		
+		Board.ammo.remove(gi.getAmmo().get(gi.getAmmo().size() - 1));
+		
 		// check combinations and pop if possible
+		//ArrayList<Bubble> bubs = Model.checkCombinations(fired);
+		//Model.pop(bubs);
 		
 		// increment ammo appropriately
 		
 		// update view
-		//GameView.label.repaint();
+		GameView.label.repaint();
 		
 		return ValveResponse.EXECUTED;
 	}

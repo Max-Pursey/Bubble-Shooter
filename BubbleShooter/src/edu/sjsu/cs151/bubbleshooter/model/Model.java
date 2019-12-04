@@ -70,7 +70,8 @@ public class Model extends JFrame {
 		{
 			waywardBubble.y = currentY*0.8660254038;
 		}
-		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
+		Board.getInstance();
+		Board.setBubble(currentX, currentY, waywardBubble);
 	}
 	
 	/**
@@ -78,79 +79,145 @@ public class Model extends JFrame {
 	 */
 	public void addRow()
 	{
-		for(int x = Board.getInstance().board.length-1; x >= 0; x--)
+		Board.getInstance();
+		for(int x = Board.board.length-1; x >= 0; x--)
 		{
-			for(int y = Board.getInstance().board[x].length-1; y >= 1; y--)
+			Board.getInstance();
+			for(int y = Board.board[x].length-1; y >= 1; y--)
 			{
-				if(Board.getInstance().board[x][y] != null && y+1 != 10)
+				Board.getInstance();
+				if(Board.board[x][y] != null && y+1 != 10)
 				{
 					if(y%2 == 0)
 					{
-						if(x == Board.getInstance().board.length-1)
+						Board.getInstance();
+						if(x == Board.board.length-1)
 						{
-							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x][y].topRight;
-							Board.getInstance().board[x][y].topRight = null;
-							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
-							Board.getInstance().board[x][y].bottomRight = null;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topLeft = Board.board[x][y].topRight;
+							Board.getInstance();
+							Board.board[x][y].topRight = null;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomLeft = Board.board[x][y].bottomRight;
+							Board.getInstance();
+							Board.board[x][y].bottomRight = null;
 						}
 						else
 						{
-							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x][y].topRight;
-							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x+1][y-1];
-							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
-							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x+1][y+1];
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topLeft = Board.board[x][y].topRight;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topRight = Board.board[x+1][y-1];
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomLeft = Board.board[x][y].bottomRight;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomRight = Board.board[x+1][y+1];
 						}
-						Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
-						Board.getInstance().board[x][y].x = Board.getInstance().board[x][y].x + 0.5;
-						Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y+1] = Board.board[x][y];
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y].x = Board.board[x][y].x + 0.5;
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
 					}
 					else
 					{
 						if(x == 0)
 						{
-							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x][y].topLeft;
-							Board.getInstance().board[x][y].topLeft = null;
-							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x][y].bottomLeft;
-							Board.getInstance().board[x][y].bottomLeft = null;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topRight = Board.board[x][y].topLeft;
+							Board.getInstance();
+							Board.board[x][y].topLeft = null;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomRight = Board.board[x][y].bottomLeft;
+							Board.getInstance();
+							Board.board[x][y].bottomLeft = null;
 						}
 						else
 						{
-							Board.getInstance().board[x][y].topRight = Board.getInstance().board[x][y].topLeft;
-							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x-1][y-1];
-							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x][y].bottomLeft;
-							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x-1][y+1];
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topRight = Board.board[x][y].topLeft;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].topLeft = Board.board[x-1][y-1];
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomRight = Board.board[x][y].bottomLeft;
+							Board.getInstance();
+							Board.getInstance();
+							Board.board[x][y].bottomLeft = Board.board[x-1][y+1];
 						}
-						Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
-						Board.getInstance().board[x][y].x = Board.getInstance().board[x][y].x - 0.5;
-						Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y+1] = Board.board[x][y];
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y].x = Board.board[x][y].x - 0.5;
+						Board.getInstance();
+						Board.getInstance();
+						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
 					}
 				}
 			}
 		}
-		for(int x = Board.getInstance().board.length-1; x >= 0; x--)
+		Board.getInstance();
+		for(int x = Board.board.length-1; x >= 0; x--)
 		{
-			if(x == Board.getInstance().board.length-1)
+			Board.getInstance();
+			if(x == Board.board.length-1)
 			{
-				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
-				Board.getInstance().board[x][0].bottomRight = null;
+				Board.getInstance();
+				Board.getInstance();
+				Board.board[x][0].bottomLeft = Board.board[x][0].bottomRight;
+				Board.getInstance();
+				Board.board[x][0].bottomRight = null;
 			}
 			else
 			{
-				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
-				Board.getInstance().board[x][0].bottomRight = Board.getInstance().board[x+1][1];
+				Board.getInstance();
+				Board.getInstance();
+				Board.board[x][0].bottomLeft = Board.board[x][0].bottomRight;
+				Board.getInstance();
+				Board.getInstance();
+				Board.board[x][0].bottomRight = Board.board[x+1][1];
 			}
-			Board.getInstance().board[x][0+1] = Board.getInstance().board[x][0];
-			Board.getInstance().board[x][0].x = Board.getInstance().board[x][0].x + 0.5;
-			Board.getInstance().board[x][0].y = Board.getInstance().board[x][0].y + 0.8660254038;
+			Board.getInstance();
+			Board.getInstance();
+			Board.board[x][0+1] = Board.board[x][0];
+			Board.getInstance();
+			Board.getInstance();
+			Board.board[x][0].x = Board.board[x][0].x + 0.5;
+			Board.getInstance();
+			Board.getInstance();
+			Board.board[x][0].y = Board.board[x][0].y + 0.8660254038;
 		}
-		for(int x = 0; x < Board.getInstance().board.length-1; x++)
+		Board.getInstance();
+		for(int x = 0; x < Board.board.length-1; x++)
 		{
-			if(x == 0)
-				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, null, Board.getInstance().board[x][1]);
-			else
+			if(x == 0) {
+				Board.getInstance();
+				Board.getInstance();
+				Board.board[x][0] = new Bubble(null, null, null, null, null, Board.board[x][1]);
+			} else
 			{
-				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, Board.getInstance().board[x-1][1], Board.getInstance().board[x][1]);
-				Board.getInstance().board[x][0].x = x;
+				Board.getInstance();
+				Board.getInstance();
+				Board.getInstance();
+				Board.board[x][0] = new Bubble(null, null, null, null, Board.board[x-1][1], Board.board[x][1]);
+				Board.getInstance();
+				Board.board[x][0].x = x;
 			}
 		}
 	}
@@ -160,22 +227,22 @@ public class Model extends JFrame {
 		source.flipMarked();
 		ArrayList<Bubble> combination = new ArrayList<>();
 		
-		if(c == source.left.color && !source.left.marked)
+		if(source.left != null && c == source.left.color && !source.left.marked)
 			combination.addAll(checkCombinations(source.left));
 		
-		if(c == source.right.color && !source.right.marked)
+		if(source.right != null && c == source.right.color && !source.right.marked)
 			combination.addAll(checkCombinations(source.right));
 		
-		if(c == source.topLeft.color && !source.topLeft.marked)
+		if(source.topLeft != null && c == source.topLeft.color && !source.topLeft.marked)
 			combination.addAll(checkCombinations(source.topLeft));
 	 	
-		if(c == source.topRight.color && !source.topRight.marked)
+		if(source.topRight != null && c == source.topRight.color && !source.topRight.marked)
 			combination.addAll(checkCombinations(source.topRight));
 		
-		if(c == source.bottomLeft.color && !source.bottomLeft.marked)
+		if(source.bottomLeft != null && c == source.bottomLeft.color && !source.bottomLeft.marked)
 			combination.addAll(checkCombinations(source.bottomLeft));
 		
-		if(c == source.bottomRight.color && !source.bottomRight.marked)
+		if(source.bottomRight != null && c == source.bottomRight.color && !source.bottomRight.marked)
 			combination.addAll(checkCombinations(source.bottomRight));
 		
 		return combination;
@@ -186,8 +253,9 @@ public class Model extends JFrame {
 	// if arraylist greater than 3 pop them and add to scoreboard
 	// scoreboard needs to be implemented
 	// @precondition pop.size() >= 3
-	public void pop(ArrayList<Bubble> pop) {
+	public static void pop(ArrayList<Bubble> pop) {
 		for(Bubble source: pop) {
+			System.out.println("test");
 			source.left.right 			= null;
 			source.right.left 			= null;
 			source.topLeft.bottomRight 	= null;

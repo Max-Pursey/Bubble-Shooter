@@ -12,8 +12,8 @@ import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 public final class Board {
 
 	private static final Board INSTANCE = new Board();
-	public Bubble[][] board;
-	public ArrayList<Bubble> ammo;
+	public static Bubble[][] board;
+	public static ArrayList<Bubble> ammo;
 	
 	/**
 	 * Constructs a Board object that holds the grid of bubbles.
@@ -201,7 +201,7 @@ public final class Board {
 		}
 	}
 	
-	public void setBubble(int x, int y, Bubble bubble)
+	public static void setBubble(int x, int y, Bubble bubble)
 	{
 		board[x][y] = bubble;
 		if(board[x-1][y] != null)
@@ -259,11 +259,24 @@ public final class Board {
 	 */
 	public void fillAmmo()
 	{
-		for(int i = 0; i < 6; i++)
+		for(int i = 0; i < 4; i++)
 		{
 			ammo.add(new Bubble(null,null,null,null,null,null));
-			ammo.get(i).x = i;
-			ammo.get(i).y = 8.660254038; // the y coordinate of a bubble in the ammo.
+			//ammo.get(i).x = i;
+			//ammo.get(i).y = 8.660254038; // the y coordinate of a bubble in the ammo.
 		}
+		
 	}
+	
+	public static void allignAmmo() {
+		for(int i = 0; i < ammo.size()-1; i++) {
+			ammo.get(i).x = i;
+			ammo.get(i).y = 8.660254038;
+		}
+		Bubble loaded = ammo.get(ammo.size()-1);
+		loaded.x = 5;
+		loaded.y = 8.660254038;
+	}
+	
+	
 }

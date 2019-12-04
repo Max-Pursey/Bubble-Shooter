@@ -9,7 +9,6 @@ public class RestartGameValve implements Valve {
 		if(message.getClass() != RestartGameMessage.class) {
 			return ValveResponse.MISS;
 		}
-		System.out.println("valve checkmark");
 		// actions in model
 		Board.getInstance().repopulateBoard();
 		// actions in view

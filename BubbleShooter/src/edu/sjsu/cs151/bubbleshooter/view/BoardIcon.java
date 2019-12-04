@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.Icon;
 import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
+import edu.sjsu.cs151.bubbleshooter.model.Board;
+import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 import edu.sjsu.cs151.bubbleshooter.controller.GameInfo;
 
 public class BoardIcon implements Icon
@@ -15,6 +17,7 @@ public class BoardIcon implements Icon
 	private static final int WIDTH_OF_A_BUBBLE = 50;
 	private BubbleShape bubbleShape;
 	private Graphics2D g2;
+	private GameInfo gameInfo;
 	
 	public int getIconHeight() 
 	{
@@ -26,25 +29,30 @@ public class BoardIcon implements Icon
 		return BOARD_WIDTH;
 	}
 	
-	public void visit(Visitor visitor)
+	public void visit(DrawVisitor visitor)
 	{
-		GameInfo gameInfo = new GameInfo();
-		for(int y = 0; y < gameInfo.getBoardInfo().length; y++)
+		gameInfo = new GameInfo();
+		for(int y = 0; y < gameInfo.getBoardInfo().length-1; y++)
 		{
 			for(int x = 0; x < gameInfo.getBoardInfo()[y].length; x++)
 			{
 				visitor.visitBubble(gameInfo.getBoardInfo()[x][y]);	
 			}
 		}
-		for(int i = 0; i < gameInfo.getAmmo().size(); i++)
+		for(int i = 0; i < gameInfo.getAmmo().size()-1; i++)
 		{
+			gameInfo.getAmmo().get(i).x = i;
+			gameInfo.getAmmo().get(i).y = 8.660254038;
 			visitor.visitBubble(gameInfo.getAmmo().get(i));
 		}
+		
+		visitor.visitLoaded(gameInfo.getAmmo().get(gameInfo.getAmmo().size()-1));
 	}
 
 	public void paintIcon(Component c, Graphics g, int x, int y) 
 	{
 		DrawVisitor visitor = new DrawVisitor(g);
+		gameInfo = new GameInfo();
 		visitor.visitBorder();
 		visit(visitor);
 	    

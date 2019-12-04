@@ -16,7 +16,7 @@ public class GameView extends JPanel {
 		setLayout(new BorderLayout());
 
 		
-		
+	 
 		JPanel game = new JPanel();
 		game.setPreferredSize(new Dimension(GAME_WIDTH, GAME_HEIGHT+100));
 		

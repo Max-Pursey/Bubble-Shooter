@@ -17,5 +17,8 @@ public class ModelTest
 		Model tester = new Model();
 		tester.settleBubble(collider);
 		System.out.println("Done!");
+		tester.addRow();
+		System.out.println("Done!");
+		
 	}
 }

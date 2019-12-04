@@ -85,33 +85,15 @@ public class Model extends JFrame {
 	
 	public void addRow()
 	{
-		for(int x = Board.getInstance().board.length; x >= 0; x--)
+		for(int x = Board.getInstance().board.length-1; x >= 0; x--)
 		{
-			if(x == Board.getInstance().board.length)
-			{
-				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
-				Board.getInstance().board[x][0].bottomRight = null;
-			}
-			else
-			{
-				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
-				Board.getInstance().board[x][0].bottomRight = Board.getInstance().board[x+1][1];
-			}
-		}
-		for(int x = Board.getInstance().board.length; x >= 0; x--)
-		{
-			for(int y = Board.getInstance().board[x].length; y >= 1; y--)
+			for(int y = Board.getInstance().board[x].length-1; y >= 1; y--)
 			{
 				if(Board.getInstance().board[x][y] != null && y+1 != 10)
 				{
-					if(y == 0)
-					{
-						Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
-						Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x+1][y+1];
-					}
 					if(y%2 == 0)
 					{
-						if(x == Board.getInstance().board.length)
+						if(x == Board.getInstance().board.length-1)
 						{
 							Board.getInstance().board[x][y].topLeft = Board.getInstance().board[x][y].topRight;
 							Board.getInstance().board[x][y].topRight = null;
@@ -125,6 +107,9 @@ public class Model extends JFrame {
 							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x][y].bottomRight;
 							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x+1][y+1];
 						}
+						Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
+						Board.getInstance().board[x][y].x = Board.getInstance().board[x][y].x + 0.5;
+						Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
 					}
 					else
 					{
@@ -142,19 +127,37 @@ public class Model extends JFrame {
 							Board.getInstance().board[x][y].bottomRight = Board.getInstance().board[x][y].bottomLeft;
 							Board.getInstance().board[x][y].bottomLeft = Board.getInstance().board[x-1][y+1];
 						}
+						Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
+						Board.getInstance().board[x][y].x = Board.getInstance().board[x][y].x - 0.5;
+						Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
 					}
-					Board.getInstance().board[x][y+1] = Board.getInstance().board[x][y];
-					Board.getInstance().board[x][y].y = Board.getInstance().board[x][y].y + 0.8660254038;
 				}
 			}
 		}
-		for(int x = 0; x < Board.getInstance().board.length; x++)
+		for(int x = Board.getInstance().board.length-1; x >= 0; x--)
+		{
+			if(x == Board.getInstance().board.length-1)
+			{
+				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
+				Board.getInstance().board[x][0].bottomRight = null;
+			}
+			else
+			{
+				Board.getInstance().board[x][0].bottomLeft = Board.getInstance().board[x][0].bottomRight;
+				Board.getInstance().board[x][0].bottomRight = Board.getInstance().board[x+1][1];
+			}
+			Board.getInstance().board[x][0+1] = Board.getInstance().board[x][0];
+			Board.getInstance().board[x][0].x = Board.getInstance().board[x][0].x + 0.5;
+			Board.getInstance().board[x][0].y = Board.getInstance().board[x][0].y + 0.8660254038;
+		}
+		for(int x = 0; x < Board.getInstance().board.length-1; x++)
 		{
 			if(x == 0)
 				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, null, Board.getInstance().board[x][1]);
 			else
 			{
 				Board.getInstance().board[x][0] = new Bubble(null, null, null, null, Board.getInstance().board[x-1][1], Board.getInstance().board[x][1]);
+				Board.getInstance().board[x][0].x = x;
 			}
 		}
 	}

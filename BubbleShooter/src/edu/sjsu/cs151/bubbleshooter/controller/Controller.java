@@ -12,7 +12,6 @@ public class Controller {
 	public static BlockingQueue<Message> messageQueue;
 	private View view;
 	private Model model;
-	private Board gameinfo;
 	private List<Valve> valves = new LinkedList<Valve>();
 	
 	
@@ -40,9 +39,5 @@ public class Controller {
 					break;
 			}
 		}
-	}
-	
-	public void updateGameInfo() {
-		
 	}
 }

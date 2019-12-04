@@ -7,6 +7,8 @@ import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
 public class GameView extends JPanel {
+	
+	public JLabel label;
 
 	public GameView() {
 
@@ -19,7 +21,7 @@ public class GameView extends JPanel {
 		game.setPreferredSize(new Dimension(GAME_WIDTH, GAME_HEIGHT+100));
 		
 		BoardIcon boardIcon = new BoardIcon();
-		JLabel label = new JLabel(boardIcon);
+		label = new JLabel(boardIcon);
 		label.addMouseListener(new FireBubbleListener());
 		game.add(label);
 				

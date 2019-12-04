@@ -1,12 +1,12 @@
 package edu.sjsu.cs151.bubbleshooter.view;
 
+import java.awt.event.*;
 import edu.sjsu.cs151.bubbleshooter.controller.*;
 
-
 public class RestartGameListener implements ActionListener {
-	public void actionPerformed(Action event) {
+	public void actionPerformed(ActionEvent event) {
 		try {
-			queue.put(new RestartGameMessage());
+			Controller.messageQueue.put(new RestartGameMessage());
 		}
 		catch(InterruptedException exception) {
 			exception.printStackTrace();

@@ -9,7 +9,7 @@ import edu.sjsu.cs151.bubbleshooter.view.View;
 
 public class Controller {
 	
-	private BlockingQueue<Message> messageQueue;
+	public static BlockingQueue<Message> messageQueue;
 	private View view;
 	private Model model;
 	private Board gameinfo;

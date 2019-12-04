@@ -30,8 +30,7 @@ public class GameView extends JPanel {
 		
 		JButton restartButton = new JButton("Restart");
 		restartButton.setPreferredSize(new Dimension(GAME_WIDTH/4, GAME_HEIGHT/10));
-		// will call method in game that restarts 
-		//restartButton.addActionListener(event -> );
+		restartButton.addMouseListener(new FireBubbleListener());
 		
 		JLabel scoreLabel = new JLabel("Score:   " + game_score);
 		scoreLabel.setFont(new Font(scoreLabel.getName(), Font.PLAIN, 20));

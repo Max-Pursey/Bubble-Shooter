@@ -36,11 +36,12 @@ public class BoardIcon implements Icon
 				visitor.visitBubble(gameInfo.getBoardInfo()[x][y]);	
 			}
 		}
-		for(int i = 0; i < gameInfo.getAmmo().size()-1; i++)
+		if(gameInfo.getAmmo().size() != 0)
 		{
-			// 0.8660254038 is the actual y coordinate of a bubble * 10 to put it under the game board.
-			bubbleShape = new BubbleShape(i*WIDTH_OF_A_BUBBLE + 100, 0.8660254038*WIDTH_OF_A_BUBBLE, WIDTH_OF_A_BUBBLE, gameInfo.getAmmo().get(i));
-			bubbleShape.draw(g2);
+			for(int i = 0; i < gameInfo.getAmmo().size(); i++)
+			{
+				visitor.visitBubble(gameInfo.getAmmo().get(i));
+			}
 		}
 	}
 

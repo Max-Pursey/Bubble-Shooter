@@ -5,12 +5,16 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import edu.sjsu.cs151.bubbleshooter.model.Board;
+import edu.sjsu.cs151.bubbleshooter.model.Model;
+
 public class DrawVisitorTester 
 {
 	public static void main(String[] args)
 	{
 		BoardIcon boardIcon = new BoardIcon();
 		JFrame frame = new JFrame("TEST");
+		Board.getInstance().fillAmmo();
 		final JLabel label = new JLabel(boardIcon);
 		
 		frame.setLayout(new FlowLayout());

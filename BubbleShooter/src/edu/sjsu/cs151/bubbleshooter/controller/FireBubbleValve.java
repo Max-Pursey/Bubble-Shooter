@@ -3,6 +3,7 @@ package edu.sjsu.cs151.bubbleshooter.controller;
 import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.PointerInfo;
+import java.util.concurrent.TimeUnit;
 
 import edu.sjsu.cs151.bubbleshooter.model.*;
 import edu.sjsu.cs151.bubbleshooter.view.GameView;
@@ -33,29 +34,37 @@ public class FireBubbleValve implements Valve {
 		fired.dy = dy;
 		CollisionVisitor cv = new CollisionVisitor(fired);
 		System.out.println(fired.x + ", " + fired.y);
-		while(cv.getCollision() != null && fired.y >= 0) {
+		System.out.println("checkmark1");
+		while(cv.getCollision() == null) {
 			
-		for(Bubble[] bs : board)
-		{
-			for(Bubble b : bs) {
-				cv.visitBubble(b);
+			for(Bubble[] bs : board)
+			{
+				for(Bubble b : bs) {
+					cv.visitBubble(b);
+				}
+			}
+			
+			// update view
+			GameView.label.repaint();
+			
+			// increment bubble's location
+			fired.x += fired.dx;
+			fired.y += -fired.dy;
+		
+			// if x is out of boundaries, flip the dx
+			if(fired.x <= 125 || fired.x >= 650)
+				fired.dx *= -1;
+			System.out.println(fired.x + ", " + fired.y);
+			System.out.println("checkmark2");
+			try {
+				TimeUnit.MILLISECONDS.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
-		
-		// update view
-		GameView.label.repaint();
-			
-		// increment bubble's location
-		fired.x += fired.dx;
-		fired.y += -fired.dy;
-		
-		// if x is out of boundaries, flip the dx
-		if(fired.x <= 125 || fired.x >= 650)
-			fired.dx *= -1;
-		System.out.println(fired.x + ", " + fired.y);
-		}
 
-		
+		System.out.println("checkmark3");
 		// set bubble x and y to appropriate final locations
 		
 		// set bubble dx, dy to 0

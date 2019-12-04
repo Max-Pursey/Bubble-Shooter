@@ -3,6 +3,9 @@ package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.*;
 
 import javax.swing.*;
+
+import edu.sjsu.cs151.bubbleshooter.controller.Controller;
+import edu.sjsu.cs151.bubbleshooter.controller.RestartGameMessage;
 import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
@@ -32,6 +35,7 @@ public class GameView extends JPanel {
 		JButton restartButton = new JButton("Restart");
 		restartButton.setPreferredSize(new Dimension(GAME_WIDTH/4, GAME_HEIGHT/10));
 		restartButton.addActionListener(new RestartGameListener());
+		
 		
 		JLabel scoreLabel = new JLabel("Score:   " + game_score);
 		scoreLabel.setFont(new Font(scoreLabel.getName(), Font.PLAIN, 20));

@@ -44,6 +44,8 @@ public class FireBubbleValve implements Valve {
 				}
 			}
 			
+			if(cv.getCollision() != null)
+				System.out.println("HIT");
 			// update view
 			GameView.label.repaint();
 			
@@ -52,12 +54,12 @@ public class FireBubbleValve implements Valve {
 			fired.y += -fired.dy;
 		
 			// if x is out of boundaries, flip the dx
-			if(fired.x <= 125 || fired.x >= 650)
-				fired.dx *= -1;
+			//if(fired.x <= 125 || fired.x >= 650)
+				//fired.dx *= -1;
 			System.out.println(fired.x + ", " + fired.y);
 			System.out.println("checkmark2");
 			try {
-				TimeUnit.MILLISECONDS.sleep(1000);
+				TimeUnit.MILLISECONDS.sleep(10);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -76,7 +78,7 @@ public class FireBubbleValve implements Valve {
 		// increment ammo appropriately
 		
 		// update view
-		GameView.label.repaint();
+		//GameView.label.repaint();
 		
 		return ValveResponse.EXECUTED;
 	}

@@ -2,16 +2,18 @@ package edu.sjsu.cs151.bubbleshooter.view;
 
 import java.awt.event.*;
 import edu.sjsu.cs151.bubbleshooter.controller.*;
+import edu.sjsu.cs151.bubbleshooter.model.Board;
 
 public class RestartGameListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
-		try {
-			Controller.messageQueue.put(new RestartGameMessage());
-		}
-		catch(InterruptedException exception) {
-			exception.printStackTrace();
-		}
-		GameView.label.repaint();
+		System.out.println("listener pre checkmark");
+		
+			Board.getInstance().repopulateBoard();		
+			GameView.label.repaint();
+		
+		
+		
+		System.out.println("listener checkmark");
 	}
 
 }

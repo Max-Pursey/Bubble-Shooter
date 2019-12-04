@@ -103,6 +103,7 @@ public final class Board {
 	 */
 	public void repopulateBoard()
 	{
+		System.out.println("clear board checkmark");
 		for(int y = 0; y < board.length; y++)
 		{
 			for(int x = 0; x < board[y].length; x++)

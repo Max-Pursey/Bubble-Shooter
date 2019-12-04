@@ -62,7 +62,6 @@ public class Model extends JFrame {
 		{
 			currentX = (int) Math.round(waywardBubble.x-0.5);
 		}
-		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
 		if(currentY % 2 != 0)
 		{
 			waywardBubble.y = currentY*0.8660254038;
@@ -72,6 +71,7 @@ public class Model extends JFrame {
 		{
 			waywardBubble.y = currentY*0.8660254038;
 		}
+		Board.getInstance().setBubble(currentX, currentY, waywardBubble);
 	}
 	
 	/**

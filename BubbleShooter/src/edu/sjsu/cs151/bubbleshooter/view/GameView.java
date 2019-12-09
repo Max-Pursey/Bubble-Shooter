@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import edu.sjsu.cs151.bubbleshooter.controller.Controller;
+import edu.sjsu.cs151.bubbleshooter.controller.GameInfo;
 import edu.sjsu.cs151.bubbleshooter.controller.RestartGameMessage;
 import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
@@ -36,8 +37,9 @@ public class GameView extends JPanel {
 		restartButton.setPreferredSize(new Dimension(GAME_WIDTH/4, GAME_HEIGHT/10));
 		restartButton.addActionListener(new RestartGameListener());
 		
-		
-		JLabel scoreLabel = new JLabel("Score:   " + game_score);
+		//GameInfo score = new GameInfo();
+		//gameScore = score.getScore();
+		scoreLabel = new JLabel("Score:   " + 0);
 		scoreLabel.setFont(new Font(scoreLabel.getName(), Font.PLAIN, 20));
 		scoreLabel.setPreferredSize(new Dimension(GAME_WIDTH/5*2,GAME_HEIGHT/10));
 		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -57,8 +59,9 @@ public class GameView extends JPanel {
 	}
 	
 	public static JLabel label;
+	public static JLabel scoreLabel;
 	
-	private static int game_score = 0;
+	//private int gameScore;
 	private static final int GAME_HEIGHT = 400;
 	private static final int GAME_WIDTH = 600;
 }

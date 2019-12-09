@@ -151,6 +151,7 @@ public class FireBubbleValve implements Valve {
 		// update view
 		
 		Board.allignAmmo();
+		GameView.scoreLabel.setText("Score:   " + Model.score);
 		GameView.label.repaint();
 		
 		return ValveResponse.EXECUTED;

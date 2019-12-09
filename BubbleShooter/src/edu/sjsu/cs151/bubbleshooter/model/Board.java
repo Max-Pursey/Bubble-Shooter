@@ -230,7 +230,12 @@ public final class Board {
 	
 	public static void setBubble(int x, int y, Bubble bubble)
 	{
-		board[x][y] = bubble;
+		if(x == -1)
+			board[x+1][y] = bubble;
+		else if (x == 10)
+			board[x-1][y] = bubble;
+		else
+			board[x][y] = bubble;
 		if(x-1 == -1)
 			bubble.left = null;
 		else if(board[x-1][y] != null)

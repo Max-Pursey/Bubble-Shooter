@@ -13,6 +13,7 @@ public class Model extends JFrame {
 
 	public final static double MAGNITUDE = .1;
 	public final static Scanner scan = new Scanner(System.in);
+	public static int score;
 	
 	/**
 	 * Main method that runs the game
@@ -166,6 +167,7 @@ public class Model extends JFrame {
 	// scoreboard needs to be implemented
 	// @precondition pop.size() >= 3
 	public static void pop(ArrayList<Bubble> pop) {
+		score += pop.size()*100;
 		for(Bubble source: pop) {
 			
 			if(source.left != null)

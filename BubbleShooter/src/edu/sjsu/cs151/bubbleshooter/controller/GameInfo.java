@@ -11,29 +11,40 @@ public class GameInfo
 	 private ArrayList<Bubble> ammoInfo;
 	 private double dx;
 	 private double dy;
+	 private int score;
 	 
 	 public GameInfo()
 	 {
-		 boardInfo = Board.getInstance().board;
-		 ammoInfo = Board.getInstance().ammo;
+		 Board.getInstance();
+		boardInfo = Board.board;
+		 Board.getInstance();
+		ammoInfo = Board.ammo;
 		 dx = 0;
 		 dy = 0;
+		 score = Model.score;
 	 }
 	 
 	 public void updateBoard()
 	 {
-		 boardInfo = Board.getInstance().board;
+		 Board.getInstance();
+		boardInfo = Board.board;
 	 }
 	 
 	 public void updateAmmo()
 	 {
-		 ammoInfo = Board.getInstance().ammo;
+		 Board.getInstance();
+		ammoInfo = Board.ammo;
 	 }
 	 
 	 public void updateCoordinates(double newdx, double newdy)
 	 {
 		 dx = newdx;
 		 dy = newdy;
+	 }
+	 
+	 public void updateScore()
+	 {
+		 score = Model.score;
 	 }
 	 
 	 public Bubble[][] getBoardInfo()
@@ -54,5 +65,10 @@ public class GameInfo
 	 public double getdy()
 	 {
 		 return dy;
+	 }
+	 
+	 public int getScore()
+	 {
+		 return score;
 	 }
 }

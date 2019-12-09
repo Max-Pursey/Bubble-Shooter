@@ -115,8 +115,8 @@ public class FireBubbleValve implements Valve {
 		}
 		
 		
-		
 		if(popList.size() >= 3) {
+			System.out.println("marked pop: " + popList.size());
 			Model.pop(popList);
 			popped = true;
 			popList.clear();
@@ -130,11 +130,20 @@ public class FireBubbleValve implements Valve {
 						popList.add(bubblec);
 				}
 			}
-			Model.pop(popList);
+			if(popList.size() > 0) {
+				System.out.println("connected pop: " + popList.size());
+				Model.pop(popList);
+				popList.clear();
+			}
 		}
 		else {
-			for(Bubble markedBub : popList)
-				markedBub.setMarked(false);
+			System.out.println("failed marked pop: " + popList.size());
+			for(Bubble[] b : gi.getBoardInfo()) {
+				for(Bubble bubble : b) {
+					if(bubble != null && bubble.marked)
+						bubble.setMarked(false);
+				}
+			}
 		}
 		
 		for(Bubble[] b : gi.getBoardInfo()) {
@@ -167,12 +176,29 @@ public class FireBubbleValve implements Valve {
 			Board.ammo.addAll(temp);		
 		}
 		
-		System.out.println(gi.getAmmo().size());
 		if(gi.getAmmo().isEmpty()) {
 			Board.numAmmo--;
 			Board.fillAmmo();
 			Model.addRow();
+			for(int i = 0; i < gi.getBoardInfo().length; i++) {
+			if(gi.getBoardInfo()[i][0] != null)
+				Model.checkConnected(gi.getBoardInfo()[i][0]);
+			}
+			for(Bubble[] c : gi.getBoardInfo()) {
+			for(Bubble bubblec : c) {
+				if(bubblec != null && !bubblec.connected)
+					popList.add(bubblec);
+				}
+			}
+			if(popList.size() > 0) {
+				Model.pop(popList);
+				popList.clear();
+			}
+		
 		}
+		
+		// check for new islands
+		
 		
 		// update view
 		

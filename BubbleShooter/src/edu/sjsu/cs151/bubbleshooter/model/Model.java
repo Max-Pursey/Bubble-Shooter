@@ -136,8 +136,6 @@ public class Model extends JFrame {
 		Color c = source.color;
 		source.setMarked(true);
 		
-		System.out.println(source.toString() + ", " + source.x + ", " + source.y);
-		
 		if(source.left != null && c == source.left.color)
 			checkCombinations(source.left);
 		

@@ -13,10 +13,11 @@ public class Bubble
 	public Color 	color;
 	public String 	colorString;
 	public boolean 	marked;
-	public double 		x;
-	public double 		y;
-	public double 		dx;
-	public double 		dy;
+	public boolean 	connected;
+	public double 	x;
+	public double 	y;
+	public double 	dx;
+	public double 	dy;
 	
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
 	Bubble thisBottomRight)
@@ -62,6 +63,8 @@ public class Bubble
 	
 	
 	public void setMarked(boolean marked) { this.marked = marked; }
+	
+	public void setConnected(boolean connected) { this.connected = connected; }
 	
 	
 	public String toString() { return colorString; }

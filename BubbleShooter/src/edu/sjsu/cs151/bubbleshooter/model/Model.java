@@ -189,6 +189,26 @@ public class Model extends JFrame {
 		
 	}
 	
+	
+	public static void checkConnected(Bubble source) {
+		source.setConnected(true);
+		
+		if(source.left != null && !source.left.connected)
+			checkConnected(source.left);
+		if(source.right != null && !source.right.connected)
+			checkConnected(source.right);
+		if(source.topLeft != null && !source.topLeft.connected)
+			checkConnected(source.topLeft);
+		if(source.topRight != null && !source.topRight.connected)
+			checkConnected(source.topRight);
+		if(source.bottomLeft != null && !source.bottomLeft.connected)
+			checkConnected(source.bottomLeft);
+		if(source.bottomRight != null && !source.bottomRight.connected)
+			checkConnected(source.bottomRight);
+		
+		
+	}
+	
 	public void moveBubble(Bubble bubble) {
 		// adds the vector to position
 		bubble.x = bubble.x + bubble.dx * MAGNITUDE;

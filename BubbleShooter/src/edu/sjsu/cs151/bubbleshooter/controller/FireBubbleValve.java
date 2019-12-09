@@ -70,20 +70,20 @@ public class FireBubbleValve implements Valve {
 		Bubble firstCollided = cv.getCollision();
 		// set bubble x and y to appropriate final locations
 		
-		int i = -1;
+		int j = -1;
 		if(fired.x > firstCollided.x)
-			i = 1;
+			j = 1;
 		
 		if(fired.y - firstCollided.dy < .5) {
-			fired.x = firstCollided.x + (.5 * i);
+			fired.x = firstCollided.x + (.5 * j);
 			fired.y = firstCollided.y - Math.sqrt(3)/2;
 		}
 		else if(fired.y - firstCollided.y > .5) {
-			fired.x = firstCollided.x + (.5 * i);
+			fired.x = firstCollided.x + (.5 * j);
 			fired.y = firstCollided.y + Math.sqrt(3)/2;
 		}
 		else {
-			fired.x = firstCollided.x + i;
+			fired.x = firstCollided.x + j;
 			fired.y = firstCollided.y;
 		}
 		
@@ -105,22 +105,48 @@ public class FireBubbleValve implements Valve {
 		// check combinations and pop if possible
 		
 		popped = false;
-		markedList = new ArrayList<Bubble>();
+		popList = new ArrayList<Bubble>();
 		Model.checkCombinations(fired);
 		for(Bubble[] b : gi.getBoardInfo()) {
 			for(Bubble bubble : b) {
 				if(bubble != null && bubble.marked)
-					markedList.add(bubble);
+					popList.add(bubble);
 			}
 		}
-		if(markedList.size() >= 3) {
-			Model.pop(markedList);
+		
+		
+		
+		if(popList.size() >= 3) {
+			Model.pop(popList);
 			popped = true;
+			popList.clear();
+			for(int i = 0; i < gi.getBoardInfo().length; i++) {
+				if(gi.getBoardInfo()[i][0] != null)
+					Model.checkConnected(gi.getBoardInfo()[i][0]);
+			}
+			for(Bubble[] c : gi.getBoardInfo()) {
+				for(Bubble bubblec : c) {
+					if(bubblec != null && !bubblec.connected)
+						popList.add(bubblec);
+				}
+			}
+			Model.pop(popList);
 		}
 		else {
-			for(Bubble markedBub : markedList)
+			for(Bubble markedBub : popList)
 				markedBub.setMarked(false);
 		}
+		
+		for(Bubble[] b : gi.getBoardInfo()) {
+			for(Bubble bubble : b) {
+				if(bubble != null)
+					bubble.setConnected(false);
+			}
+		}
+		
+		
+		// check connected
+		
 		
 		
 		// remove bubble from ammo
@@ -162,6 +188,6 @@ public class FireBubbleValve implements Valve {
 	private double dx;
 	private double dy;
 	private boolean popped;
-	private ArrayList<Bubble> markedList;
+	private ArrayList<Bubble> popList;
 	private ArrayList<Bubble> temp;
 }

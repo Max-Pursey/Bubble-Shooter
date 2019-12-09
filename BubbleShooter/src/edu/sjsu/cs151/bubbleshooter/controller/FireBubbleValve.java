@@ -45,18 +45,21 @@ public class FireBubbleValve implements Valve {
 			}
 			
 			// update view
+			
 			GameView.label.repaint();
 			
+			
 			// increment bubble's location
+			
 			fired.x += fired.dx;
 			fired.y += -fired.dy;
+			
 		
 			// if x is out of boundaries, flip the dx
-			if(fired.x < 0 || fired.x > 10)
+			
+			if(fired.x < 0 || fired.x > 9.5)
 				fired.dx *= -1;
 			
-			//if(fired.x <= 125 || fired.x >= 650)
-				//fired.dx *= -1;
 			try {
 				TimeUnit.MILLISECONDS.sleep(10);
 			} catch (InterruptedException e) {
@@ -83,10 +86,13 @@ public class FireBubbleValve implements Valve {
 			fired.x = firstCollided.x + i;
 			fired.y = firstCollided.y;
 		}
+		
+		
 		// set bubble dx, dy to 0
 		
 		fired.dx = 0;
 		fired.dy = 0;
+		
 		
 		// add bubble to board
 		
@@ -95,15 +101,36 @@ public class FireBubbleValve implements Valve {
 		
 		Board.setBubble((int)newX, (int)newY, fired);
 		
+				
+		// check combinations and pop if possible
+		
+		popped = false;
+		ArrayList<Bubble> bubs = Model.checkCombinations(fired);
+		if(bubs.size() >= 3) {
+			Model.pop(bubs);
+			popped = true;
+		}
+		
+		
 		// remove bubble from ammo
+		
 		
 		Board.ammo.remove(gi.getAmmo().get(gi.getAmmo().size() - 1));
 		
-		// check combinations and pop if possible
-		ArrayList<Bubble> bubs = Model.checkCombinations(fired);
-		//Model.pop(bubs);
+		
 		
 		// increment ammo appropriately
+		// by default removes bubble from ammo, if 3 or more popped, add a new bubble to ammo.
+		
+		temp = new ArrayList<Bubble>();
+		if(popped == true) {
+			temp.addAll(gi.getAmmo());
+			Board.ammo.clear();
+			Board.ammo.add(new Bubble(null, null, null, null, null, null));
+			Board.ammo.addAll(temp);		
+		}
+		
+		System.out.println(gi.getAmmo().size());
 		if(gi.getAmmo().isEmpty()) {
 			Board.numAmmo--;
 			Board.fillAmmo();
@@ -111,6 +138,7 @@ public class FireBubbleValve implements Valve {
 		}
 		
 		// update view
+		
 		Board.allignAmmo();
 		GameView.label.repaint();
 		
@@ -121,4 +149,6 @@ public class FireBubbleValve implements Valve {
 	private double y;
 	private double dx;
 	private double dy;
+	private boolean popped;
+	private ArrayList<Bubble> temp;
 }

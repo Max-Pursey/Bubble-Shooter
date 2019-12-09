@@ -181,8 +181,8 @@ public class Model extends JFrame {
 			if(source.bottomRight != null)
 				source.bottomRight.topLeft 	= null;
 			int x = (int) source.x;
-			int y = (int) source.y;
-			Board.getInstance().removeBubble(x,y+1);
+			int y = (int) (source.y/0.8660254038);
+			Board.getInstance().removeBubble(x,y);
 		}
 		
 	}

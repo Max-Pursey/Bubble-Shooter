@@ -192,7 +192,7 @@ public final class Board {
 		}
 	}
 	
-	public void visit(Visitor visitor)
+	public static void visit(Visitor visitor)
 	{
 		for(int y = 0; y < board.length; y++)
 		{
@@ -210,21 +210,15 @@ public final class Board {
 		if(currentY % 2 != 0)
 		{
 			currentX = (int) Math.round(waywardBubble.x-0.5);
-		}
-		else
-		{
-			currentX = (int) Math.round(waywardBubble.x);
-		}
-		if(currentY % 2 != 0)
-		{
 			waywardBubble.y = currentY*0.8660254038;
 			waywardBubble.x = currentX+0.5;
 		}
 		else
 		{
+			currentX = (int) Math.round(waywardBubble.x);
 			waywardBubble.y = currentY*0.8660254038;
+			waywardBubble.x = currentX;
 		}
-		Board.getInstance();
 		Board.setBubble(currentX, currentY, waywardBubble);
 	}
 	

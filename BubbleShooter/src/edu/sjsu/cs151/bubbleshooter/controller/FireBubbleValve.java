@@ -37,12 +37,13 @@ public class FireBubbleValve implements Valve {
 		CollisionVisitor cv = new CollisionVisitor(fired);
 		while(cv.getCollision() == null) {
 			
-			for(Bubble[] bs : board)
+			/**for(Bubble[] bs : board)
 			{
 				for(Bubble b : bs) {
 					cv.visitBubble(b);
 				}
-			}
+			}**/
+			Board.visit(cv);
 			
 			// update view
 			
@@ -67,7 +68,7 @@ public class FireBubbleValve implements Valve {
 				e.printStackTrace();
 			}
 		}
-		Bubble firstCollided = cv.getCollision();
+		/**Bubble firstCollided = cv.getCollision();
 		// set bubble x and y to appropriate final locations
 		
 		int j = -1;
@@ -85,7 +86,7 @@ public class FireBubbleValve implements Valve {
 		else {
 			fired.x = firstCollided.x + j;
 			fired.y = firstCollided.y;
-		}
+		}**/
 		
 		
 		// set bubble dx, dy to 0
@@ -100,6 +101,7 @@ public class FireBubbleValve implements Valve {
 		//double newY = (fired.y * (2 / Math.sqrt(3))) + Math.sqrt(3) *2;
 		
 		Board.settleBubble(fired);
+		GameView.label.repaint();
 		
 				
 		// check combinations and pop if possible

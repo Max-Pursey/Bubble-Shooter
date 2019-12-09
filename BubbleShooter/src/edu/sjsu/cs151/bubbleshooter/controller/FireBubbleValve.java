@@ -96,10 +96,10 @@ public class FireBubbleValve implements Valve {
 		
 		// add bubble to board
 		
-		double newX = Math.round(fired.x - 0.25);
-		double newY = (fired.y * (2 / Math.sqrt(3))) + Math.sqrt(3) *2;
+		//double newX = Math.round(fired.x - 0.25);
+		//double newY = (fired.y * (2 / Math.sqrt(3))) + Math.sqrt(3) *2;
 		
-		Board.setBubble((int)newX, (int)newY, fired);
+		Board.settleBubble(fired);
 		
 				
 		// check combinations and pop if possible

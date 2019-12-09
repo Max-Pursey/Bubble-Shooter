@@ -49,31 +49,6 @@ public class Model extends JFrame {
 		System.out.println("Enter any to to fire");
 	}
 	
-	void settleBubble(Bubble waywardBubble)
-	{
-		int currentX;
-		int currentY = (int) Math.round(waywardBubble.y/0.8660254038);
-		if(currentY % 2 != 0)
-		{
-			currentX = (int) Math.round(waywardBubble.x);
-		}
-		else
-		{
-			currentX = (int) Math.round(waywardBubble.x-0.5);
-		}
-		if(currentY % 2 != 0)
-		{
-			waywardBubble.y = currentY*0.8660254038;
-			waywardBubble.x = currentX+0.5;
-		}
-		else
-		{
-			waywardBubble.y = currentY*0.8660254038;
-		}
-		Board.getInstance();
-		Board.setBubble(currentX, currentY, waywardBubble);
-	}
-	
 	/**
 	 * adds a row to the game board.
 	 */

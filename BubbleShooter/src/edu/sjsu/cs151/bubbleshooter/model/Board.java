@@ -203,22 +203,53 @@ public final class Board {
 		}
 	}
 	
+	public static void settleBubble(Bubble waywardBubble)
+	{
+		int currentX;
+		int currentY = (int) Math.round(waywardBubble.y/0.8660254038);
+		if(currentY % 2 != 0)
+		{
+			currentX = (int) Math.round(waywardBubble.x-0.5);
+		}
+		else
+		{
+			currentX = (int) Math.round(waywardBubble.x);
+		}
+		if(currentY % 2 != 0)
+		{
+			waywardBubble.y = currentY*0.8660254038;
+			waywardBubble.x = currentX+0.5;
+		}
+		else
+		{
+			waywardBubble.y = currentY*0.8660254038;
+		}
+		Board.getInstance();
+		Board.setBubble(currentX, currentY, waywardBubble);
+	}
+	
 	public static void setBubble(int x, int y, Bubble bubble)
 	{
 		board[x][y] = bubble;
-		if(board[x-1][y] != null)
+		if(x-1 == -1)
+			bubble.left = null;
+		else if(board[x-1][y] != null)
 		{
 			bubble.left = board[x-1][y];
 			board[x-1][y].right = bubble;
 		}
-		if(board[x+1][y] != null)
+		if(x+1 == 10)
+			bubble.right = null;
+		else if(board[x+1][y] != null)
 		{
 			bubble.right = board[x+1][y];
 			board[x+1][y].left = bubble;
 		}
 		if(y % 2 == 0)
 		{
-			if(board[x-1][y-1] != null)
+			if(x-1 == -1)
+				bubble.topLeft = null;
+			else if(board[x-1][y-1] != null)
 			{
 				bubble.topLeft = board[x-1][y-1];
 				board[x-1][y-1].bottomRight = bubble;
@@ -236,7 +267,9 @@ public final class Board {
 				bubble.topLeft = board[x][y-1];
 				board[x][y-1].bottomRight = bubble;
 			}
-			if(board[x+1][y-1] != null)
+			if(x+1 == 10)
+				bubble.topRight = null;
+			else if(board[x+1][y-1] != null)
 			{
 				bubble.topRight = board[x+1][y-1];
 				board[x+1][y-1].bottomLeft = bubble;

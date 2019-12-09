@@ -1,11 +1,11 @@
 package edu.sjsu.cs151.bubbleshooter.view;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
+@SuppressWarnings("serial")
 public class WelcomeAnimation extends JPanel{
 	
 	

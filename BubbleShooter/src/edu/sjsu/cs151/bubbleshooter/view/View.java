@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import edu.sjsu.cs151.bubbleshooter.controller.Message;
 
-
+@SuppressWarnings("serial")
 public class View extends JFrame{
 	
 	private static JFrame frame;
@@ -86,8 +86,4 @@ public class View extends JFrame{
 		return gameView;
 	}
 
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
 }

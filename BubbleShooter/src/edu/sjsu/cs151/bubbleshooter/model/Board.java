@@ -1,8 +1,6 @@
 package edu.sjsu.cs151.bubbleshooter.model;
 
 import java.util.ArrayList;
-
-import edu.sjsu.cs151.bubbleshooter.controller.Controller;
 import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 
 /**
@@ -112,8 +110,7 @@ public final class Board {
 				board[x][y] = null;
 			}
 		}
-		for(int i = 0; i < ammo.size(); i++)
-			ammo.remove(i);
+		ammo.clear();
 		numAmmo = 5;
 		fillAmmo();
 		double xCoordinate = 0;

@@ -9,6 +9,7 @@ import javax.swing.JFrame;
  * A class for running the program
  */
 
+@SuppressWarnings("serial")
 public class Model extends JFrame {
 
 	public final static double MAGNITUDE = .1;

@@ -4,12 +4,8 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import edu.sjsu.cs151.bubbleshooter.controller.Controller;
-import edu.sjsu.cs151.bubbleshooter.controller.GameInfo;
-import edu.sjsu.cs151.bubbleshooter.controller.RestartGameMessage;
-import edu.sjsu.cs151.bubbleshooter.model.Board;
-import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
+@SuppressWarnings("serial")
 public class GameView extends JPanel {
 
 	public GameView() {

@@ -58,7 +58,7 @@ public class GameView extends JPanel {
 	
 	public static JLabel label;
 	
-	private static int game_score = 330;
+	private static int game_score = 0;
 	private static final int GAME_HEIGHT = 400;
 	private static final int GAME_WIDTH = 600;
 }

@@ -54,144 +54,78 @@ public class Model extends JFrame {
 	 */
 	public static void addRow()
 	{
-		Board.getInstance();
 		for(int x = Board.board.length-1; x >= 0; x--)
 		{
-			Board.getInstance();
 			for(int y = Board.board[x].length-1; y >= 1; y--)
 			{
-				Board.getInstance();
 				if(Board.board[x][y] != null && y+1 != 10)
 				{
 					if(y%2 == 0)
 					{
-						Board.getInstance();
 						if(x == Board.board.length-1)
 						{
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topLeft = Board.board[x][y].topRight;
-							Board.getInstance();
 							Board.board[x][y].topRight = null;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomLeft = Board.board[x][y].bottomRight;
-							Board.getInstance();
 							Board.board[x][y].bottomRight = null;
 						}
 						else
 						{
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topLeft = Board.board[x][y].topRight;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topRight = Board.board[x+1][y-1];
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomLeft = Board.board[x][y].bottomRight;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomRight = Board.board[x+1][y+1];
 						}
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y+1] = Board.board[x][y];
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y].x = Board.board[x][y].x + 0.5;
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
 					}
 					else
 					{
 						if(x == 0)
 						{
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topRight = Board.board[x][y].topLeft;
-							Board.getInstance();
 							Board.board[x][y].topLeft = null;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomRight = Board.board[x][y].bottomLeft;
-							Board.getInstance();
 							Board.board[x][y].bottomLeft = null;
 						}
 						else
 						{
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topRight = Board.board[x][y].topLeft;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].topLeft = Board.board[x-1][y-1];
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomRight = Board.board[x][y].bottomLeft;
-							Board.getInstance();
-							Board.getInstance();
 							Board.board[x][y].bottomLeft = Board.board[x-1][y+1];
 						}
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y+1] = Board.board[x][y];
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y].x = Board.board[x][y].x - 0.5;
-						Board.getInstance();
-						Board.getInstance();
 						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
 					}
 				}
 			}
 		}
-		Board.getInstance();
 		for(int x = Board.board.length-1; x >= 0; x--)
 		{
-			Board.getInstance();
 			if(x == Board.board.length-1)
 			{
-				Board.getInstance();
-				Board.getInstance();
 				Board.board[x][0].bottomLeft = Board.board[x][0].bottomRight;
-				Board.getInstance();
 				Board.board[x][0].bottomRight = null;
 			}
 			else
 			{
-				Board.getInstance();
-				Board.getInstance();
 				Board.board[x][0].bottomLeft = Board.board[x][0].bottomRight;
-				Board.getInstance();
-				Board.getInstance();
 				Board.board[x][0].bottomRight = Board.board[x+1][1];
 			}
-			Board.getInstance();
-			Board.getInstance();
 			Board.board[x][0+1] = Board.board[x][0];
-			Board.getInstance();
-			Board.getInstance();
 			Board.board[x][0].x = Board.board[x][0].x + 0.5;
-			Board.getInstance();
-			Board.getInstance();
 			Board.board[x][0].y = Board.board[x][0].y + 0.8660254038;
 		}
-		Board.getInstance();
-		for(int x = 0; x < Board.board.length-1; x++)
+		for(int x = 0; x < Board.board.length; x++)
 		{
 			if(x == 0) {
-				Board.getInstance();
-				Board.getInstance();
 				Board.board[x][0] = new Bubble(null, null, null, null, null, Board.board[x][1]);
 			} else
 			{
-				Board.getInstance();
-				Board.getInstance();
-				Board.getInstance();
 				Board.board[x][0] = new Bubble(null, null, null, null, Board.board[x-1][1], Board.board[x][1]);
-				Board.getInstance();
 				Board.board[x][0].x = x;
 			}
 		}

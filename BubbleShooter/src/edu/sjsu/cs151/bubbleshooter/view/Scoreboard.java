@@ -16,11 +16,11 @@ public class Scoreboard extends JPanel
 		JPanel textBoard = new JPanel();
 		textBoard.setLayout(new BoxLayout(textBoard, BoxLayout.Y_AXIS));
 		
-		String name1 = "Max";
-		String name2 = "Jack";
-		String name3 = "Finn";
-		String name4 = "Po";
-		String name5 = "Horace";
+		String name1 = "";
+		String name2 = "";
+		String name3 = "";
+		String name4 = "";
+		String name5 = "";
 		JLabel scoreLabel1 = new JLabel(name1 + " 500", JLabel.CENTER);
 		JLabel scoreLabel2 = new JLabel(name2 + " 400", JLabel.CENTER);
 		JLabel scoreLabel3 = new JLabel(name3 + " 300", JLabel.CENTER);

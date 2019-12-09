@@ -248,7 +248,7 @@ public class Model extends JFrame {
 				source.bottomRight.topLeft 	= null;
 			int x = (int) source.x;
 			int y = (int) source.y;
-			Board.getInstance().removeBubble(x,y);
+			Board.getInstance().removeBubble(x,y+1);
 		}
 		
 	}

@@ -105,10 +105,21 @@ public class FireBubbleValve implements Valve {
 		// check combinations and pop if possible
 		
 		popped = false;
-		ArrayList<Bubble> bubs = Model.checkCombinations(fired);
-		if(bubs.size() >= 3) {
-			Model.pop(bubs);
+		markedList = new ArrayList<Bubble>();
+		Model.checkCombinations(fired);
+		for(Bubble[] b : gi.getBoardInfo()) {
+			for(Bubble bubble : b) {
+				if(bubble != null && bubble.marked)
+					markedList.add(bubble);
+			}
+		}
+		if(markedList.size() >= 3) {
+			Model.pop(markedList);
 			popped = true;
+		}
+		else {
+			for(Bubble markedBub : markedList)
+				markedBub.setMarked(false);
 		}
 		
 		
@@ -150,5 +161,6 @@ public class FireBubbleValve implements Valve {
 	private double dx;
 	private double dy;
 	private boolean popped;
+	private ArrayList<Bubble> markedList;
 	private ArrayList<Bubble> temp;
 }

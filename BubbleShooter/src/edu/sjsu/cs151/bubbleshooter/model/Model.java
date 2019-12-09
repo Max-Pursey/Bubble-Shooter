@@ -197,39 +197,33 @@ public class Model extends JFrame {
 		}
 	}
 	
-	public static ArrayList<Bubble> checkCombinations(Bubble source) {
+	public static void checkCombinations(Bubble source) {
 		Color c = source.color;
-		source.flipMarked();
-		ArrayList<Bubble> combination = new ArrayList<>();
+		source.setMarked(true);
 		
-		return combination;
+		System.out.println(source.toString() + ", " + source.x + ", " + source.y);
 		
-		/*
 		if(source.left != null && c == source.left.color)
-			combination.addAll(checkCombinations(source.left));
+			checkCombinations(source.left);
 		
 		if(source.right != null && c == source.right.color && !source.right.marked)
-			combination.addAll(checkCombinations(source.right));
+			checkCombinations(source.right);
 		
 		if(source.topLeft != null && c == source.topLeft.color && !source.topLeft.marked) {
-			combination.addAll(checkCombinations(source.topLeft));
-			System.out.println("topleft");
+			checkCombinations(source.topLeft);
 		}
 	 	
 		if(source.topRight != null && c == source.topRight.color && !source.topRight.marked) {
-			combination.addAll(checkCombinations(source.topRight));
-			System.out.println("topright");
+			checkCombinations(source.topRight);
 		}
 		
 		if(source.bottomLeft != null && c == source.bottomLeft.color && !source.bottomLeft.marked)
-			combination.addAll(checkCombinations(source.bottomLeft));
+			checkCombinations(source.bottomLeft);
 		
 		if(source.bottomRight != null && c == source.bottomRight.color && !source.bottomRight.marked)
-			combination.addAll(checkCombinations(source.bottomRight));
+			checkCombinations(source.bottomRight);
 		
-		combination.add(source);
-		return combination;
-		*/
+		
 	}
 	
 	
@@ -239,13 +233,19 @@ public class Model extends JFrame {
 	// @precondition pop.size() >= 3
 	public static void pop(ArrayList<Bubble> pop) {
 		for(Bubble source: pop) {
-			System.out.println("test");
-			source.left.right 			= null;
-			source.right.left 			= null;
-			source.topLeft.bottomRight 	= null;
-			source.topRight.bottomLeft 	= null;
-			source.bottomLeft.topRight 	= null;
-			source.bottomRight.topLeft 	= null;
+			
+			if(source.left != null)
+				source.left.right 			= null;
+			if(source.right != null)
+				source.right.left 			= null;
+			if(source.topLeft != null)
+				source.topLeft.bottomRight 	= null;
+			if(source.topRight != null)
+				source.topRight.bottomLeft 	= null;
+			if(source.bottomLeft != null)
+				source.bottomLeft.topRight 	= null;
+			if(source.bottomRight != null)
+				source.bottomRight.topLeft 	= null;
 			int x = (int) source.x;
 			int y = (int) source.y;
 			Board.getInstance().removeBubble(x,y);
@@ -259,3 +259,5 @@ public class Model extends JFrame {
 		bubble.y = bubble.y + bubble.dy * MAGNITUDE;
 	}
 }
+
+

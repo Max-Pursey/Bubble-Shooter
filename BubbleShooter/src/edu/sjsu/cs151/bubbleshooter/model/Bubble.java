@@ -61,7 +61,7 @@ public class Bubble
 	}	
 	
 	
-	public void flipMarked() { marked = !marked; }
+	public void setMarked(boolean marked) { this.marked = marked; }
 	
 	
 	public String toString() { return colorString; }

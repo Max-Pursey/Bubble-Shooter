@@ -32,6 +32,7 @@ public class BoardIcon implements Icon
 		return BOARD_HEIGHT;
 	}
 
+	
 	/**
 	 * a method that returns the board width.
 	 * @return BOARD_WIDTH

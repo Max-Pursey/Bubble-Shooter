@@ -48,9 +48,9 @@ public class BoardIcon implements Icon
 	public void visit(DrawVisitor visitor)
 	{
 		gameInfo = new GameInfo();
-		for(int y = 0; y < gameInfo.getBoardInfo().length-1; y++)
+		for(int x = 0; x < gameInfo.getBoardInfo().length; x++)
 		{
-			for(int x = 0; x < gameInfo.getBoardInfo()[y].length; x++)
+			for(int y = 0; y < gameInfo.getBoardInfo()[x].length; y++)
 			{
 				visitor.visitBubble(gameInfo.getBoardInfo()[x][y]);	
 			}

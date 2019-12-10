@@ -20,7 +20,7 @@ public final class Board {
 	 * Constructs a Board object that holds the grid of bubbles.
 	 */
 	private Board() {
-		board = new Bubble[11][10];
+		board = new Bubble[10][11];
 		ammo = new ArrayList<Bubble>();
 		numAmmo = 5;
 		addRowCount = 0;

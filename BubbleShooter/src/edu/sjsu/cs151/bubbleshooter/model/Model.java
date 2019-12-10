@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
+import edu.sjsu.cs151.bubbleshooter.controller.*;
+
 /**
  * A class for running the program
  */
@@ -56,6 +58,65 @@ public class Model extends JFrame {
 	 */
 	public static void addRow()
 	{
+		
+		// move each bubble starting from the bottom right, down and over
+		
+		for(int x = Board.board.length - 1 ; x >= 0; x--) {
+			for(int y = Board.board.length - 1; y >= 0; y--) {
+				if(y+1 < 10 &&  Board.board[x][y] != null) {
+					Board.board[x][y].left = null;
+					Board.board[x][y].right = null;
+					Board.board[x][y].topLeft = null;
+					Board.board[x][y].topRight = null;
+					Board.board[x][y].bottomLeft = null;
+					Board.board[x][y].bottomRight = null;
+					if(y%2 == 0) {
+						Board.board[x][y+1] = Board.board[x][y];
+						Board.board[x][y].x = Board.board[x][y].x + 0.5;
+						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
+					}
+					else {
+						Board.board[x][y+1] = Board.board[x][y];
+						Board.board[x][y].x = Board.board[x][y].x - 0.5;
+						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
+					}
+				}
+				else
+					try {
+						Controller.messageQueue.put(new GameOverMessage());
+					}
+					catch(InterruptedException exception) {
+						exception.printStackTrace();
+					}
+			}	
+		}
+		
+		// add new bubbles in first row
+		
+		for(int x = 0; x < Board.board.length; x++)
+		{
+				Board.board[x][0] = new Bubble(null, null, null, null, null, null);
+				Board.board[x][0].x = x;
+				Board.board[x][0].y = 0;
+		}
+		
+		// connect all bubbles to their neighbors
+		
+		for(int x = 0; x < Board.board.length; x++) {
+			for(int y = 0; y < Board.board.length; y++) {
+				if(Board.board[x][y] != null) {
+					Board.board[x][y].connectNeighbors(x, y);
+				}
+			}
+		}
+			
+		
+		// if moving to row > 9, game over valve
+		
+		// disconnect all connections and reconnect
+		
+		/*
+		//Board.addRowCount++;
 		for(int x = Board.board.length-1; x >= 0; x--)
 		{
 			for(int y = Board.board[x].length-1; y >= 1; y--)
@@ -131,6 +192,7 @@ public class Model extends JFrame {
 				Board.board[x][0].x = x;
 			}
 		}
+		*/
 	}
 	
 	public static void checkCombinations(Bubble source) {
@@ -156,8 +218,7 @@ public class Model extends JFrame {
 		
 		if(source.bottomRight != null && c == source.bottomRight.color && !source.bottomRight.marked)
 			checkCombinations(source.bottomRight);
-		
-		
+	
 	}
 	
 	
@@ -183,6 +244,8 @@ public class Model extends JFrame {
 				source.bottomRight.topLeft 	= null;
 			int x = (int) source.x;
 			int y = (int) (source.y/0.8660254038);
+			source.setConnected(true);
+			source.setMarked(false);
 			Board.getInstance().removeBubble(x,y);
 		}
 		

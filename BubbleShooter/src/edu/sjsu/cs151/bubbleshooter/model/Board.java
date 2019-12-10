@@ -10,9 +10,11 @@ import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 public final class Board {
 
 	private static final Board INSTANCE = new Board();
+	public static int addRowCount;
 	public static Bubble[][] board;
 	public static ArrayList<Bubble> ammo;
 	public static int numAmmo;
+	
 	
 	/**
 	 * Constructs a Board object that holds the grid of bubbles.
@@ -21,6 +23,7 @@ public final class Board {
 		board = new Bubble[10][10];
 		ammo = new ArrayList<Bubble>();
 		numAmmo = 5;
+		addRowCount = 0;
 		fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
@@ -112,6 +115,7 @@ public final class Board {
 		}
 		ammo.clear();
 		numAmmo = 5;
+		addRowCount = 0;
 		fillAmmo();
 		double xCoordinate = 0;
 		double yCoordinate = 0;
@@ -290,6 +294,7 @@ public final class Board {
 	 */
 	public static void fillAmmo()
 	{
+		
 		if(numAmmo < 1)
 			numAmmo = 1;
 		for(int i = 0; i < numAmmo; i++)

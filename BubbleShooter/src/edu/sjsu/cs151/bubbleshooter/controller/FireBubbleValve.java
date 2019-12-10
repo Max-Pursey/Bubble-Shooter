@@ -28,6 +28,7 @@ public class FireBubbleValve implements Valve {
 		dy = y/q;
 		//System.out.println(dx + ", " + dy);
 		GameInfo gi = new GameInfo();
+		gi.updateBoard();
 		Bubble fired = gi.getAmmo().get(gi.getAmmo().size()-1);
 		//System.out.println(fired.x + ", " + fired.y);
 		Bubble[][] board = gi.getBoardInfo();
@@ -94,6 +95,7 @@ public class FireBubbleValve implements Valve {
 		fired.dx = 0;
 		fired.dy = 0;
 		
+	
 		
 		// add bubble to board
 		
@@ -101,7 +103,9 @@ public class FireBubbleValve implements Valve {
 		//double newY = (fired.y * (2 / Math.sqrt(3))) + Math.sqrt(3) *2;
 		
 		Board.settleBubble(fired);
+		Board.ammo.remove(gi.getAmmo().get(gi.getAmmo().size() - 1));
 		GameView.label.repaint();
+		
 		
 				
 		// check combinations and pop if possible
@@ -115,6 +119,11 @@ public class FireBubbleValve implements Valve {
 					popList.add(bubble);
 			}
 		}
+		
+		
+		
+		GameView.label.repaint();
+		
 		
 		
 		if(popList.size() >= 3) {
@@ -155,17 +164,18 @@ public class FireBubbleValve implements Valve {
 			}
 		}
 		
+		GameView.label.repaint();
+		
+		
 		
 		// check connected
 		
 		
 		
-		// remove bubble from ammo
 		
 		
-		Board.ammo.remove(gi.getAmmo().get(gi.getAmmo().size() - 1));
 		
-		
+	
 		
 		// increment ammo appropriately
 		// by default removes bubble from ammo, if 3 or more popped, add a new bubble to ammo.
@@ -182,10 +192,12 @@ public class FireBubbleValve implements Valve {
 			Board.numAmmo--;
 			Board.fillAmmo();
 			Model.addRow();
+			gi.updateBoard();
 			for(int i = 0; i < gi.getBoardInfo().length; i++) {
 			if(gi.getBoardInfo()[i][0] != null)
 				Model.checkConnected(gi.getBoardInfo()[i][0]);
 			}
+			gi.updateBoard();
 			for(Bubble[] c : gi.getBoardInfo()) {
 			for(Bubble bubblec : c) {
 				if(bubblec != null && !bubblec.connected)

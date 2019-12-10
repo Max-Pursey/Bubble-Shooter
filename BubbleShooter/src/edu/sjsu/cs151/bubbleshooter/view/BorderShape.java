@@ -3,7 +3,7 @@ package edu.sjsu.cs151.bubbleshooter.view;
 import java.awt.Color;
 import java.awt.Graphics2D;
 /**
- * a class that creates a border for the game board.
+ * creates a border for the game board.
  * @author maxpu
  *
  */

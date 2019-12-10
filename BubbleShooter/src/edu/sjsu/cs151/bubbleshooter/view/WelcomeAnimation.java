@@ -5,10 +5,16 @@ import javax.swing.*;
 
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 
-@SuppressWarnings("serial")
+/**
+ * draws the welcome animation used at the start of the game
+ * @author maxpu
+ *
+ */
 public class WelcomeAnimation extends JPanel{
 	
-	
+	/**
+	 * creates the WelcomeAnimation object and animates it
+	 */
 	public WelcomeAnimation() {
 		
 		// creates an array of BubbleShape objects the size of numBubbles

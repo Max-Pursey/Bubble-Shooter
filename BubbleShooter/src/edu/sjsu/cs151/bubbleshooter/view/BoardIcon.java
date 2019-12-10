@@ -9,7 +9,11 @@ import edu.sjsu.cs151.bubbleshooter.controller.Visitor;
 import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Bubble;
 import edu.sjsu.cs151.bubbleshooter.controller.GameInfo;
-
+/**
+ * a class that creates an icon of the board the game is played on
+ * @author maxpu
+ *
+ */
 public class BoardIcon implements Icon
 {
 	private static final int BOARD_HEIGHT = 500;
@@ -19,16 +23,28 @@ public class BoardIcon implements Icon
 	private Graphics2D g2;
 	private GameInfo gameInfo;
 	
+	/**
+	 * a method that returns the height of the board.
+	 * @return BOARD_HEIGHT
+	 */
 	public int getIconHeight() 
 	{
 		return BOARD_HEIGHT;
 	}
 
+	/**
+	 * a method that returns the board width.
+	 * @return BOARD_WIDTH
+	 */
 	public int getIconWidth() 
 	{
 		return BOARD_WIDTH;
 	}
 	
+	/**
+	 * a method that takes a visitor and applies it to every viable bubble on the board.
+	 * @param visitor
+	 */
 	public void visit(DrawVisitor visitor)
 	{
 		gameInfo = new GameInfo();
@@ -46,9 +62,13 @@ public class BoardIcon implements Icon
 			visitor.visitBubble(gameInfo.getAmmo().get(i));
 		}
 		
-		visitor.visitLoaded(gameInfo.getAmmo().get(gameInfo.getAmmo().size()-1));
+		visitor.visitBubble(gameInfo.getAmmo().get(gameInfo.getAmmo().size()-1));
 	}
 
+	/**
+	 * a method that is used to draw the icon of the board.
+	 * @param c, g, x, y
+	 */
 	public void paintIcon(Component c, Graphics g, int x, int y) 
 	{
 		DrawVisitor visitor = new DrawVisitor(g);

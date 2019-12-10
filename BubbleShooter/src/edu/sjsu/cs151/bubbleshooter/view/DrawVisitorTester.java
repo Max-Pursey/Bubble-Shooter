@@ -7,7 +7,11 @@ import javax.swing.JLabel;
 
 import edu.sjsu.cs151.bubbleshooter.model.Board;
 import edu.sjsu.cs151.bubbleshooter.model.Model;
-
+/**
+ * a simple class to test DrawVisitor
+ * @author maxpu
+ *
+ */
 public class DrawVisitorTester 
 {
 	public static void main(String[] args)

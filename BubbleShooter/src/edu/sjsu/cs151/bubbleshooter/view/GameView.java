@@ -5,9 +5,15 @@ import java.awt.*;
 import javax.swing.*;
 
 
-@SuppressWarnings("serial")
+/**
+ * Creates the view of the game
+ * @author maxpu
+ *
+ */
 public class GameView extends JPanel {
-
+	/**
+	 * creates the GameView object and draws all the icons involved
+	 */
 	public GameView() {
 
 

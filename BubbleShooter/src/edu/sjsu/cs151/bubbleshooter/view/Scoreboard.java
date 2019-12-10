@@ -7,7 +7,10 @@ import javax.swing.*;
  * A class that controls and displays the Score.
  */
 public class Scoreboard extends JPanel 
-{	
+{
+	/**
+	 * creates and draws the scoreboard
+	 */
 	public Scoreboard() 
 	{
 		setPreferredSize(new Dimension(800, 1000));
@@ -50,10 +53,6 @@ public class Scoreboard extends JPanel
 		quitButton.setPreferredSize(new Dimension(600/4, 400/10));
 		
 		add(quitButton, BorderLayout.SOUTH);
-	}
-	
-	public static void backToMenu() {
-		
 	}
 }
 

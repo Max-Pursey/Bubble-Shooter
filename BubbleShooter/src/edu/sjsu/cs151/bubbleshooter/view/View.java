@@ -88,5 +88,12 @@ public class View extends JFrame{
 	{
 		return gameView;
 	}
-
+	/**
+	 * returns the game over view
+	 * @return gameOver
+	 */
+	public static JPanel getGameOverView()
+	{
+		return gameOver;
+	}
 }

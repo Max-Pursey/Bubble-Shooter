@@ -18,7 +18,8 @@ import edu.sjsu.cs151.bubbleshooter.controller.GameInfo;
  */
 public class GameOverView extends JPanel
 {
-	public static int score;
+	private static int score;
+	public static JLabel finalScore;
 	private static final int GAME_HEIGHT = 400;
 	private static final int GAME_WIDTH = 600;
 	
@@ -27,12 +28,9 @@ public class GameOverView extends JPanel
 	 */
 	public GameOverView()
 	{
-		GameInfo endGameInfo = new GameInfo();
-		score = endGameInfo.getScore();
-		
 		setLayout(new BorderLayout());
 		
-		JLabel finalScore = new JLabel("Your score is: " + score);
+		finalScore = new JLabel("Your score is: " + score);
 		finalScore.setFont(new Font(finalScore.getName(), Font.PLAIN, 20));
 		finalScore.setPreferredSize(new Dimension(GAME_WIDTH/5*2,GAME_HEIGHT/10));
 		finalScore.setHorizontalAlignment(SwingConstants.CENTER);
@@ -44,5 +42,13 @@ public class GameOverView extends JPanel
 		
 		add(finalScore, BorderLayout.CENTER);
 		add(quitButton, BorderLayout.SOUTH);
+	}
+	/**
+	 * returns the final score JLabel
+	 * @return finalScore
+	 */
+	public static JLabel getFinalScore()
+	{
+		return finalScore;
 	}
 }

@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import edu.sjsu.cs151.bubbleshooter.model.*;
+import edu.sjsu.cs151.bubbleshooter.view.GameOverView;
 import edu.sjsu.cs151.bubbleshooter.view.GameView;
+import edu.sjsu.cs151.bubbleshooter.view.View;
 /**
  * class that handles the code of when a bubble is fired
  * @author maxpu
@@ -237,6 +239,15 @@ public class FireBubbleValve implements Valve {
 		Board.allignAmmo();
 		GameView.scoreLabel.setText("Score:   " + Model.score);
 		GameView.label.repaint();
+		
+		for(int x = 0; x < Board.board.length; x++)
+		{
+			if(Board.board[x][10] != null)
+			{
+				GameOverView.finalScore.setText("Your score is: " + gi.getScore());
+				View.gameOverScreen();
+			}
+		}
 		
 		return ValveResponse.EXECUTED;
 	}

@@ -193,6 +193,10 @@ public final class Board {
 		}
 	}
 	
+	/**
+	 * visits ever possible bubble position on the board
+	 * @param visitor
+	 */
 	public static void visit(Visitor visitor)
 	{
 		for(int x = 0; x < board.length; x++)
@@ -204,6 +208,10 @@ public final class Board {
 		}
 	}
 	
+	/**
+	 * settles a bubble in its new position on the board after hitting another bubble
+	 * @param waywardBubble
+	 */
 	public static void settleBubble(Bubble waywardBubble)
 	{
 		int currentX;
@@ -222,7 +230,12 @@ public final class Board {
 		}
 		Board.setBubble(currentX, currentY, waywardBubble);
 	}
-	
+	/**
+	 * part of settleBubble, this actually puts the bubble in its place on the board
+	 * @param x
+	 * @param y
+	 * @param bubble
+	 */
 	public static void setBubble(int x, int y, Bubble bubble)
 	{
 		if(x == -1)
@@ -277,14 +290,27 @@ public final class Board {
 		}
 	}
 	
+	/**
+	 * returns the instance of the board.
+	 * @return
+	 */
 	public static Board getInstance() {
 		return INSTANCE;
 	}
 	
+	/**
+	 * returns a 2d array of bubbles representing the board
+	 * @return board
+	 */
 	public Bubble[][] getBoardBubbles() {
 		return board;
 	}
 	
+	/**
+	 * removes a bubble from the board array
+	 * @param x
+	 * @param y
+	 */
 	public static void removeBubble(int x, int y) {
 		board[x][y] = null;
 	}
@@ -305,6 +331,9 @@ public final class Board {
 		
 	}
 	
+	/**
+	 * Aligns the ammo on the board for view
+	 */
 	public static void allignAmmo() {
 		for(int i = 0; i < ammo.size()-1; i++) {
 			ammo.get(i).x = i;

@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import edu.sjsu.cs151.bubbleshooter.controller.*;
 
 /**
- * A class for running the program
+ * A class for running the model of the game
  */
 
 @SuppressWarnings("serial")
@@ -197,6 +197,10 @@ public class Model extends JFrame {
 		*/
 	}
 	
+	/**
+	 * checks for other bubbles of the same color next to the source
+	 * @param source
+	 */
 	public static void checkCombinations(Bubble source) {
 		Color c = source.color;
 		source.setMarked(true);
@@ -228,6 +232,10 @@ public class Model extends JFrame {
 	// if arraylist greater than 3 pop them and add to scoreboard
 	// scoreboard needs to be implemented
 	// @precondition pop.size() >= 3
+	/**
+	 * pops a bubble, deleting it from the board
+	 * @param pop
+	 */
 	public static void pop(ArrayList<Bubble> pop) {
 		score += pop.size()*100;
 		for(Bubble source: pop) {
@@ -253,7 +261,10 @@ public class Model extends JFrame {
 		
 	}
 	
-	
+	/**
+	 * checks if a bubble is connected
+	 * @param source
+	 */
 	public static void checkConnected(Bubble source) {
 		source.setConnected(true);
 		
@@ -273,6 +284,10 @@ public class Model extends JFrame {
 		
 	}
 	
+	/**
+	 * moves a bubble by its direction
+	 * @param bubble
+	 */
 	public void moveBubble(Bubble bubble) {
 		// adds the vector to position
 		bubble.x = bubble.x + bubble.dx * MAGNITUDE;

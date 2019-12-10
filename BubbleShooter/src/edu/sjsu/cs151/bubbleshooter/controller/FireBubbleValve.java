@@ -8,8 +8,15 @@ import java.util.concurrent.TimeUnit;
 
 import edu.sjsu.cs151.bubbleshooter.model.*;
 import edu.sjsu.cs151.bubbleshooter.view.GameView;
-
+/**
+ * class that handles the code of when a bubble is fired
+ * @author maxpu
+ *
+ */
 public class FireBubbleValve implements Valve {
+	/**
+	 * the code that handles when a bubble is fired
+	 */
 	public ValveResponse execute(Message message) {
 		if(message.getClass() != FireBubbleMessage.class) {
 			return ValveResponse.MISS;

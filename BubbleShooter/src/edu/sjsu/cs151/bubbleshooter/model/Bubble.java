@@ -1,7 +1,11 @@
 package edu.sjsu.cs151.bubbleshooter.model;
 
 import java.awt.Color;
-
+/**
+ * class that represents one single bubble
+ * @author maxpu
+ *
+ */
 public class Bubble 
 {	
 	public Bubble 	left;
@@ -19,6 +23,15 @@ public class Bubble
 	public double 	dx;
 	public double 	dy;
 	
+	/**
+	 * creates one single bubble object with any number of neighbors
+	 * @param thisLeft
+	 * @param thisRight
+	 * @param thisTopLeft
+	 * @param thisTopRight
+	 * @param thisBottomLeft
+	 * @param thisBottomRight
+	 */
 	public Bubble(Bubble thisLeft, Bubble thisRight, Bubble thisTopLeft, Bubble thisTopRight, Bubble thisBottomLeft, 
 	Bubble thisBottomRight)
 	{
@@ -49,6 +62,10 @@ public class Bubble
 		color = this.randomColor();
 	}
 	
+	/**
+	 * creates a bubble from the supplied bubble
+	 * @param that
+	 */
 	public Bubble(Bubble that) {
 		this.left = that.left;
 		this.right = that.right;
@@ -66,7 +83,10 @@ public class Bubble
 		this.dy = that.dy;
 	} 
 	
-	
+	/**
+	 * sets a random color for a bubble
+	 * @return color
+	 */
 	public Color randomColor() {
 		double randNumber = Math.random() * 6;
 		
@@ -78,15 +98,29 @@ public class Bubble
 		else						{ colorString = " Pink "; return Color.MAGENTA; }
 	}	
 	
-	
+	/**
+	 * flips the marked boolean variable
+	 * @param marked
+	 */
 	public void setMarked(boolean marked) { this.marked = marked; }
 	
+	/**
+	 * flips the connected boolean variable
+	 * @param connected
+	 */
 	public void setConnected(boolean connected) { this.connected = connected; }
 	
-	
+	/**
+	 * returns a string of the color
+	 */
 	public String toString() { return colorString; }
 
 	// takes in board location x and y
+	/**
+	 * connects the bubble at x and y to its neighbors
+	 * @param x
+	 * @param y
+	 */
 	public void connectNeighbors(int x, int y) {
 		// left
 		if(x-1 >= 0 && Board.board[x-1][y] != null) 

@@ -17,6 +17,7 @@ public class View extends JFrame{
 	private static JFrame frame;
 	private static JPanel welcomeAnim;
 	private static JPanel gameView;
+	private static JPanel gameOver;
 	private static JButton startButton;
 
 	public static View init(BlockingQueue<Message> queue) {
@@ -37,6 +38,7 @@ public class View extends JFrame{
 		startButton.addActionListener(event -> startGame());
 		
 		gameView = new GameView();
+		gameOver = new GameOverView();
 
 		frame.add(welcomeAnim, BorderLayout.NORTH);
 		frame.add(startButton, BorderLayout.SOUTH);
@@ -67,6 +69,14 @@ public class View extends JFrame{
 		startButton.addActionListener(event -> startGame());
 		frame.getContentPane().add(welcomeAnim, BorderLayout.NORTH);
 		frame.getContentPane().add(startButton, BorderLayout.SOUTH);
+		frame.getContentPane().invalidate();
+		frame.getContentPane().validate();
+	}
+	
+	public static void gameOverScreen()
+	{
+		frame.getContentPane().removeAll();
+		frame.getContentPane().add(gameOver);
 		frame.getContentPane().invalidate();
 		frame.getContentPane().validate();
 	}

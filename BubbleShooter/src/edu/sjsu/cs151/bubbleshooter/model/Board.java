@@ -244,14 +244,14 @@ public final class Board {
 			board[x-1][y] = bubble;
 		else
 			board[x][y] = bubble;
-		if(x-1 == -1)
+		if(x-1 == -1 || x-1 == -2)
 			bubble.left = null;
 		else if(board[x-1][y] != null)
 		{
 			bubble.left = board[x-1][y];
 			board[x-1][y].right = bubble;
 		}
-		if(x+1 == 10)
+		if(x+1 == 10 || x+1 == 11)
 			bubble.right = null;
 		else if(board[x+1][y] != null)
 		{
@@ -267,7 +267,12 @@ public final class Board {
 				bubble.topLeft = board[x-1][y-1];
 				board[x-1][y-1].bottomRight = bubble;
 			}
-			if(board[x][y-1] != null)
+			if(x == 10)
+			{
+				bubble.topRight = board[x-1][y-1];
+				board[x-1][y-1].bottomLeft = bubble;
+			}
+			else if(board[x][y-1] != null)
 			{
 				bubble.topRight = board[x][y-1];
 				board[x][y-1].bottomLeft = bubble;

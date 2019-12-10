@@ -141,10 +141,10 @@ public class Bubble
 		// topRight
 		if(y%2 == 0) {
 			if(y-1 >= 0 && Board.board[x][y-1] != null)
-				topLeft = Board.board[x][y-1];
+				topRight = Board.board[x][y-1];
 		}
 		else if(x+1 <= 9 && y-1 >= 0 && Board.board[x+1][y-1] != null)
-				topLeft = Board.board[x+1][y-1];
+				topRight = Board.board[x+1][y-1];
 		// bottomLeft
 		if(y%2 == 0) {
 			if(x-1 >= 0 && y+1 <= 9 && Board.board[x-1][y+1] != null)
@@ -157,10 +157,10 @@ public class Bubble
 		// bottomRight
 		if(y%2 == 0) {
 			if(y+1 <= 9 && Board.board[x][y+1] != null)
-				bottomLeft = Board.board[x][y+1];
+				bottomRight = Board.board[x][y+1];
 		}
 		else if(x+1 <= 9 && y+1 <= 9 && Board.board[x+1][y+1] != null)
-				bottomLeft = Board.board[x+1][y+1];
+				bottomRight = Board.board[x+1][y+1];
 		
 	}
 }

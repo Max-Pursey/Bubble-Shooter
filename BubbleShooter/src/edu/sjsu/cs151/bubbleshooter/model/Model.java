@@ -103,7 +103,7 @@ public class Model extends JFrame {
 		// connect all bubbles to their neighbors
 		
 		for(int x = 0; x < Board.board.length; x++) {
-			for(int y = 0; y < Board.board.length; y++) {
+			for(int y = 0; y < Board.board[x].length; y++) {
 				if(Board.board[x][y] != null) {
 					Board.board[x][y].connectNeighbors(x, y);
 				}

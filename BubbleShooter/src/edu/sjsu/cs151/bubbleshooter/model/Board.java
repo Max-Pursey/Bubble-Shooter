@@ -20,7 +20,7 @@ public final class Board {
 	 * Constructs a Board object that holds the grid of bubbles.
 	 */
 	private Board() {
-		board = new Bubble[10][10];
+		board = new Bubble[11][10];
 		ammo = new ArrayList<Bubble>();
 		numAmmo = 5;
 		addRowCount = 0;
@@ -195,9 +195,9 @@ public final class Board {
 	
 	public static void visit(Visitor visitor)
 	{
-		for(int y = 0; y < board.length; y++)
+		for(int x = 0; x < board.length; x++)
 		{
-			for(int x = 0; x < board[y].length; x++)
+			for(int y = 0; y < board[x].length; y++)
 			{
 				visitor.visitBubble(board[x][y]);	
 			}

@@ -63,7 +63,7 @@ public class Model extends JFrame {
 		
 		for(int x = Board.board.length - 1 ; x >= 0; x--) {
 			for(int y = Board.board.length - 1; y >= 0; y--) {
-				if(y+1 < 10 &&  Board.board[x][y] != null) {
+				if(y+1 < 11 &&  Board.board[x][y] != null) {
 					Board.board[x][y].left = null;
 					Board.board[x][y].right = null;
 					Board.board[x][y].topLeft = null;

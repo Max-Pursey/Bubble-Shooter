@@ -68,4 +68,48 @@ public class Bubble
 	
 	
 	public String toString() { return colorString; }
+
+	// takes in board location x and y
+	public void connectNeighbors(int x, int y) {
+		// left
+		if(x-1 >= 0 && Board.board[x-1][y] != null) 
+			left = Board.board[x-1][y];
+		
+		// right
+		if(x+1 <= 9 && Board.board[x+1][y] != null)
+			right = Board.board[x+1][y];
+		
+		// topLeft
+		if(y%2 == 0) {
+			if(x-1 >= 0 && y-1 >= 0 && Board.board[x-1][y-1] != null)
+				topLeft = Board.board[x-1][y-1];
+		}
+		else if(y-1 >= 0 && Board.board[x][y-1] != null)
+				topLeft = Board.board[x][y-1];
+
+		// topRight
+		if(y%2 == 0) {
+			if(y-1 >= 0 && Board.board[x][y-1] != null)
+				topLeft = Board.board[x][y-1];
+		}
+		else if(x+1 <= 9 && y-1 >= 0 && Board.board[x+1][y-1] != null)
+				topLeft = Board.board[x+1][y-1];
+		// bottomLeft
+		if(y%2 == 0) {
+			if(x-1 >= 0 && y+1 <= 9 && Board.board[x-1][y+1] != null)
+				bottomLeft = Board.board[x-1][y+1];
+		}
+		else if(y+1 <= 9 && Board.board[x][y+1] != null)
+				bottomLeft = Board.board[x][y+1];
+		
+			
+		// bottomRight
+		if(y%2 == 0) {
+			if(y+1 <= 9 && Board.board[x][y+1] != null)
+				bottomLeft = Board.board[x][y+1];
+		}
+		else if(x+1 <= 9 && y+1 <= 9 && Board.board[x+1][y+1] != null)
+				bottomLeft = Board.board[x+1][y+1];
+		
+	}
 }

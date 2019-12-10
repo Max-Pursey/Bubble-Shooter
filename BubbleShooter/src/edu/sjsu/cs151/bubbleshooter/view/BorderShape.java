@@ -20,5 +20,5 @@ public class BorderShape {
 	private static final int RECT_X = 125;
 	private static final int RECT_Y = 0; 
 	private static final int RECT_WIDTH = 525;
-	private static final int RECT_HEIGHT = 490;
+	private static final int RECT_HEIGHT = 483;
 }

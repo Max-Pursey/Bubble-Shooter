@@ -13,8 +13,14 @@ public class RestartGameListener implements ActionListener {
 	 * the action that happens when the restart button is pressed
 	 */
 	public void actionPerformed(ActionEvent event) {
-			Board.getInstance().repopulateBoard();		
-			GameView.label.repaint();
+			
+			try {
+				Controller.messageQueue.put(new RestartGameMessage());
+				System.out.println("test");
+			}
+			catch(InterruptedException exception) {
+				exception.printStackTrace();
+			}
 	}
 
 }

@@ -14,11 +14,14 @@ public class RestartGameValve implements Valve {
 			return ValveResponse.MISS;
 		}
 		// actions in model
+		System.out.println("test2"); 
+		GameInfo gameinfo = new GameInfo();
 		Board.getInstance().repopulateBoard();
 		// actions in view
-		View.returnToWelcome();
 		GameView.label.repaint();
 		return ValveResponse.EXECUTED;
+		
+		
 	}
 
 }

@@ -27,7 +27,7 @@ public class Controller {
 	public Controller(View view, Model model, BlockingQueue<Message> queue) {
 		this.view = view;
 		this.model = model;
-		this.messageQueue = queue;
+		Controller.messageQueue = queue;
 		valves.add(new FireBubbleValve());
 	}
 	

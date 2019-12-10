@@ -1,5 +1,6 @@
 package edu.sjsu.cs151.bubbleshooter.controller;
 
+import edu.sjsu.cs151.bubbleshooter.view.View;
 
 /**
  * handles the code for when a game over happens
@@ -22,6 +23,7 @@ public class GameOverValve implements Valve {
 		// actions in model
 		
 		// actions in view
+		View.gameOverScreen();
 		
 		return ValveResponse.EXECUTED;
 	}

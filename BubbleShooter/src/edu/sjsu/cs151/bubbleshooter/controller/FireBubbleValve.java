@@ -156,7 +156,7 @@ public class FireBubbleValve implements Valve {
 				}
 			}
 		}
-		
+		gi.updateBoard();
 		for(Bubble[] b : gi.getBoardInfo()) {
 			for(Bubble bubble : b) {
 				if(bubble != null)
@@ -188,16 +188,25 @@ public class FireBubbleValve implements Valve {
 			Board.ammo.addAll(temp);		
 		}
 		
+		
+		
 		if(gi.getAmmo().isEmpty()) {
-			Board.numAmmo--;
+			//Board.numAmmo--;
 			Board.fillAmmo();
 			Model.addRow();
+			GameView.label.repaint();
+			try {
+				TimeUnit.MILLISECONDS.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			gi.updateBoard();
+			/*
 			for(int i = 0; i < gi.getBoardInfo().length; i++) {
 			if(gi.getBoardInfo()[i][0] != null)
 				Model.checkConnected(gi.getBoardInfo()[i][0]);
 			}
-			gi.updateBoard();
 			for(Bubble[] c : gi.getBoardInfo()) {
 			for(Bubble bubblec : c) {
 				if(bubblec != null && !bubblec.connected)
@@ -206,8 +215,10 @@ public class FireBubbleValve implements Valve {
 			}
 			if(popList.size() > 0) {
 				Model.pop(popList);
+				System.out.println("New Island Pop");
 				popList.clear();
 			}
+			*/
 		
 		}
 		

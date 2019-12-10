@@ -49,6 +49,23 @@ public class Bubble
 		color = this.randomColor();
 	}
 	
+	public Bubble(Bubble that) {
+		this.left = that.left;
+		this.right = that.right;
+		this.topLeft = that.topLeft;
+		this.topRight = that.topRight;
+		this.bottomLeft = that.bottomLeft;
+		this.bottomRight = that.bottomRight;
+		this.color = that.color;
+		this.colorString = that.colorString;
+		this.marked = that.marked;
+		this.connected = that.connected;
+		this.x = that.x;
+		this.y = that.y;
+		this.dx = that.dx;
+		this.dy = that.dy;
+	} 
+	
 	
 	public Color randomColor() {
 		double randNumber = Math.random() * 6;

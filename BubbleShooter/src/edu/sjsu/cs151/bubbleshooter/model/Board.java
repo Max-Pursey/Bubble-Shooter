@@ -108,7 +108,7 @@ public final class Board {
 	{
 		for(int y = 0; y < board.length; y++)
 		{
-			for(int x = 0; x < board[y].length; x++)
+			for(int x = 0; x < board[y].length-1; x++)
 			{
 				board[x][y] = null;
 			}
@@ -285,7 +285,7 @@ public final class Board {
 		return board;
 	}
 	
-	public void removeBubble(int x, int y) {
+	public static void removeBubble(int x, int y) {
 		board[x][y] = null;
 	}
 	

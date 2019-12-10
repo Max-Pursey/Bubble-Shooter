@@ -71,14 +71,16 @@ public class Model extends JFrame {
 					Board.board[x][y].bottomLeft = null;
 					Board.board[x][y].bottomRight = null;
 					if(y%2 == 0) {
-						Board.board[x][y+1] = Board.board[x][y];
 						Board.board[x][y].x = Board.board[x][y].x + 0.5;
 						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
+						Board.board[x][y+1] = new Bubble(Board.board[x][y]);
+						Board.removeBubble(x,y);
 					}
 					else {
-						Board.board[x][y+1] = Board.board[x][y];
 						Board.board[x][y].x = Board.board[x][y].x - 0.5;
 						Board.board[x][y].y = Board.board[x][y].y + 0.8660254038;
+						Board.board[x][y+1] = new Bubble(Board.board[x][y]);
+						Board.removeBubble(x,y);
 					}
 				}
 				else
@@ -246,7 +248,7 @@ public class Model extends JFrame {
 			int y = (int) (source.y/0.8660254038);
 			source.setConnected(true);
 			source.setMarked(false);
-			Board.getInstance().removeBubble(x,y);
+			Board.removeBubble(x,y);
 		}
 		
 	}

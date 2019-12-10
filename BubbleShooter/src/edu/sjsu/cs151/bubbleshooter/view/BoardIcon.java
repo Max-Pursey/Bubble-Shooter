@@ -61,8 +61,8 @@ public class BoardIcon implements Icon
 			gameInfo.getAmmo().get(i).y = 8.660254038;
 			visitor.visitBubble(gameInfo.getAmmo().get(i));
 		}
-		
-		visitor.visitBubble(gameInfo.getAmmo().get(gameInfo.getAmmo().size()-1));
+		if(gameInfo.getAmmo().size()-1 >= 0)
+			visitor.visitBubble(gameInfo.getAmmo().get(gameInfo.getAmmo().size()-1));
 	}
 
 	/**

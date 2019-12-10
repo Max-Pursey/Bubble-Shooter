@@ -6,7 +6,11 @@ import edu.sjsu.cs151.bubbleshooter.model.*;
 import edu.sjsu.cs151.bubbleshooter.view.View;
 
 
-
+/**
+ * handles the communication between model and view
+ * @author maxpu
+ *
+ */
 public class Controller {
 	
 	public static BlockingQueue<Message> messageQueue;
@@ -14,7 +18,12 @@ public class Controller {
 	private Model model;
 	private List<Valve> valves = new LinkedList<Valve>();
 	
-	
+	/**
+	 * creates a Controller object
+	 * @param view
+	 * @param model
+	 * @param queue
+	 */
 	public Controller(View view, Model model, BlockingQueue<Message> queue) {
 		this.view = view;
 		this.model = model;
@@ -22,7 +31,9 @@ public class Controller {
 		valves.add(new FireBubbleValve());
 	}
 	
-	
+	/**
+	 * what happens in the game every loop
+	 */
 	public void mainLoop() {
 		ValveResponse response = ValveResponse.EXECUTED;
 		Message message = null;

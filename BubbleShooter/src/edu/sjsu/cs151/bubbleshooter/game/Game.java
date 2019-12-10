@@ -5,7 +5,11 @@ import java.util.concurrent.*;
 import edu.sjsu.cs151.bubbleshooter.controller.*;
 import edu.sjsu.cs151.bubbleshooter.model.*;
 import edu.sjsu.cs151.bubbleshooter.view.*;
-
+/**
+ * This runs the entire game from one class
+ * @author maxpu
+ *
+ */
 public class Game {
 	
 	private static BlockingQueue<Message> queue = new LinkedBlockingQueue<Message>();
